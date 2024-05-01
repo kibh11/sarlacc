@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_5_1_2024_2_40_PM_[Changes]" date="1714592421548" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_1_2024_2_40_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 5/1/2024 2:40 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="S100b.fasta" />
+    <option name="AFTER_PATH" value="utility/testing/S100b.fasta" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_1_2024_2_40_PM_[Changes]/S100b.fasta" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="data/pepsin/pepsin.xlsx" />
+    <option name="AFTER_PATH" value="utility/data/pepsin/pepsin.xlsx" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_1_2024_2_40_PM_[Changes]/pepsin.xlsx" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="data/pepsin/init_pepsin.xlsx" />
+    <option name="AFTER_PATH" value="utility/data/pepsin/init_pepsin.xlsx" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_1_2024_2_40_PM_[Changes]/init_pepsin.xlsx" />
+  </binary>
+</changelist>
