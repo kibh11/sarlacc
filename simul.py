@@ -2,7 +2,7 @@ from setup import pd, rn, np, Path, SeqIO, opxl, mp, partial
 
 #load_protease uses the protease param to load an excel sheet containing two sheets, with one counting the number of experimentally observed cleavages, and the other containing the total number of potential cleavage sites observed, the function then returns the number of cleavages divided by the number of total occurences as a probability table
 def load_protease(protease='pepsin'):
-    protease_file = Path('data') / protease / f'{protease}.xlsx'
+    protease_file = Path('utility/data') / protease / f'{protease}.xlsx'
 
     cleavage_table = pd.read_excel(protease_file, sheet_name=['cleavages', 'totals'], index_col=0)
 
