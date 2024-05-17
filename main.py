@@ -1,8 +1,10 @@
-from setup import plt, sns
-import simul, exper
+from setup import plt, sns, SeqIO
+import simulation as sim
+import experimental as exp
 
 fasta_file = "utility/testing/S100b.fasta"
-fragments = simul.digest(fasta_file, n=1000)
+excel_file = "utility/testing/20240129-PepsinDigestionformatted.xlsx"
+fragments = sim.digest(fasta_file, n=1000)
 
 
 fragment_counts = {}
@@ -13,6 +15,15 @@ sorted_fragment_counts = dict(sorted(fragment_counts.items(), key=lambda item: i
 
 top_100_fragments = list(sorted_fragment_counts.keys())[:100]
 
-print("Top 100 fragments:")
-for fragment in top_100_fragments:
-    print(fragment)
+# print("Top 100 fragments:")
+# for fragment in top_100_fragments:
+#     print(fragment)
+
+fragments_ret = exp.retrieve_fragments(excel_file)
+
+with open(fasta_file, 'r') as file:
+    protein_seq = SeqIO.read(file, 'fasta').seq
+
+print (protein_seq)
+
+exp.incr_cleavage(fasta_file, excel_file, 'pepsin')
