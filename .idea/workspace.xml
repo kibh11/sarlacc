@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="rebase">
-      <change afterPath="$PROJECT_DIR$/utility/testing/20240129-PepsinDigestionformatted.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="experimental incrementations (not working/tested) + refactored utils.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exper.py" beforeDir="false" afterPath="$PROJECT_DIR$/experimental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simul.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/experimental.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +52,13 @@
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bhatk/PycharmProjects/sarlacc/utility/testing",
+    "last_opened_file_path": "C:/Users/bhatk/PycharmProjects/sarlacc/utility/data/pepsin",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\data\pepsin" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\testing" />
       <recent name="C:\Users\bhatk\PycharmProjects" />
       <recent name="C:\Users\bhatk\PycharmProjects\digestionMapping\data\pepsin" />
@@ -174,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715567631897</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="experimental incrementations (not working/tested) + refactored utils.py">
+      <option name="closed" value="true" />
+      <created>1715979025207</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715979025207</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,6 +198,7 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="setup" />
     <MESSAGE value="rebase" />
-    <option name="LAST_COMMIT_MESSAGE" value="rebase" />
+    <MESSAGE value="experimental incrementations (not working/tested) + refactored utils.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="experimental incrementations (not working/tested) + refactored utils.py" />
   </component>
 </project>

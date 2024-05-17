@@ -1,4 +1,5 @@
 from setup import plt, sns, SeqIO
+import utils as util
 import simulation as sim
 import experimental as exp
 
@@ -21,9 +22,7 @@ top_100_fragments = list(sorted_fragment_counts.keys())[:100]
 
 fragments_ret = exp.retrieve_fragments(excel_file)
 
-with open(fasta_file, 'r') as file:
-    protein_seq = SeqIO.read(file, 'fasta').seq
+sequence = util.fasta_sequence(fasta_file)
 
-print (protein_seq)
-
+exp.incr_occurences(fasta_file, 'pepsin')
 exp.incr_cleavage(fasta_file, excel_file, 'pepsin')
