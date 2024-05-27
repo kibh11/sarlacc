@@ -6,13 +6,16 @@ def incr_occurences(fasta_file, protease):
 
     protease_sheet = util.protease_file(protease)
 
-    with pd.ExcelFile(protease_file) as xls:
+    with pd.ExcelFile(protease_sheet) as xls:
         totals_table = pd.read_excel(xls, sheet_name='totals', index_col=0)
-        for j in range(len(protein_seq) - 2):
+        for j in range(len(sequence) - 2):
             p1 = sequence[j]
             p1p = sequence[j+1]
             totals_table.at[p1, p1p] += 1
-        totals_table.to_excel(protease_sheet, sheet_name='totals')
+
+
+    with pd.ExcelWriter(protease_sheet, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
+        totals_table.to_excel(writer, sheet_name='totals')
 
 def retrieve_fragments(excel_file):
     df = pd.read_excel(excel_file, engine='openpyxl')
@@ -26,8 +29,6 @@ def incr_cleavage(fasta_file, excel_file, protease):
 
     with pd.ExcelFile(protease_sheet) as xls:
         cleavage_table = pd.read_excel(xls, sheet_name='cleavages', index_col=0)
-
-    print(cleavage_table)
 
     fragments_df = retrieve_fragments(excel_file)
     fragments = fragments_df.iloc[:, 0].tolist()
