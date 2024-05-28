@@ -32,7 +32,7 @@ def digest(fasta_file, n=1000, protease='pepsin'):
         for j in range(len(sequence) - 2):
             p1 = sequence[j]
             p1p = sequence[j+1]
-            prob = cleavage_table.loc[p1, p1p]
+            prob = cleavage_table.loc[p1p, p1]
             if rn.random() < prob and j + 1 - prev >= 4 and rn.random() < 0.5:
                 fragments.append(sequence[prev:j+1])
                 prev = j + 1
