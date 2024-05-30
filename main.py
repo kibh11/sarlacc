@@ -3,37 +3,60 @@ import utils as util
 import simulation as sim
 import experimental as exp
 
-fasta_file = "utility/testing/edited_S100b.fasta"
-excel_file = "utility/testing/edited_20240129-PepsinDigestionformatted.xlsx"
+import tkinter as tk
+from tkinter import filedialog
 
-fragments = sim.digest(fasta_file, n=1000)
 
-fragment_counts = {}
-for fragment in fragments:
-    fragment_counts[fragment] = fragment_counts.get(fragment, 0) + 1
+def open_fasta_file():
+    global fasta_file
+    fasta_file = filedialog.askopenfilename(title="Select FASTA file", filetypes=[("FASTA files", "*.fasta")], parent=root)
+    if fasta_file:
+        print(f"Selected FASTA file: {fasta_file}")
 
-sorted_fragment_counts = dict(sorted(fragment_counts.items(), key=lambda item: item[1], reverse=True))
+def open_excel_file():
+    global excel_file
+    excel_file = filedialog.askopenfilename(title="Select Excel file", filetypes=[("Excel files", "*.xlsx")], parent=root)
+    if excel_file:
+        print(f"Selected Excel file: {excel_file}")
 
-top_10_fragments = list(sorted_fragment_counts.keys())[:10]
+def process_files():
+    if fasta_file and excel_file:
+        print("Both files have been selected.")
+        
+        exp.update_table(fasta_file, excel_file, 'pepsin')
 
-print("Top 10 fragments:")
-for fragment in top_10_fragments:
-    print(fragment)
+        peptides = sim.digest(fasta_file, n=1000)
 
-exp.update_table(fasta_file, excel_file, 'pepsin')
+        peptide_counts = {}
+        for peptide in peptides:
+            peptide_counts[peptide] = peptide_counts.get(peptide, 0) + 1
 
-fragments = sim.digest(fasta_file, n=1000)
+        sorted_peptide_counts = dict(sorted(peptide_counts.items(), key=lambda item: item[1], reverse=True))
 
-fragment_counts = {}
-for fragment in fragments:
-    fragment_counts[fragment] = fragment_counts.get(fragment, 0) + 1
+        top_10_peptides = list(sorted_peptide_counts.keys())[:10]
 
-sorted_fragment_counts = dict(sorted(fragment_counts.items(), key=lambda item: item[1], reverse=True))
+        print("Top 10 peptides:")
+        for peptide in top_10_peptides:
+            print(peptide)
+        print("Processing files...")
+    else:
+        print("Please select both FASTA and Excel files.")
 
-top_10_fragments = list(sorted_fragment_counts.keys())[:10]
+root = tk.Tk()
+root.title("File Upload")
 
-print("Top 10 fragments:")
-for fragment in top_10_fragments:
-    print(fragment)
+fasta_file = None
+excel_file = None
+
+open_fasta_button = tk.Button(root, text="Open FASTA File", command=open_fasta_file)
+open_fasta_button.pack(pady=10)
+
+open_excel_button = tk.Button(root, text="Open Excel File", command=open_excel_file)
+open_excel_button.pack(pady=10)
+
+process_button = tk.Button(root, text="Process Files", command=process_files)
+process_button.pack(pady=10)
+
+root.mainloop()
 
 

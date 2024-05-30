@@ -19,14 +19,14 @@ def load_protease(protease='pepsin'):
 
 
 
-#digest reads in a fasta file, loads the probability table for cleavages between residues specific to the protease param, and then iterates through the sequence and uses the probabilities from the table to determine where "cleavages" happen, these fragments are added to the list, and the entire sequence is digested n times (given by param n, default 1000) and the list containing all the fragments is returned
+#digest reads in a fasta file, loads the probability table for cleavages between residues specific to the protease param, and then iterates through the sequence and uses the probabilities from the table to determine where "cleavages" happen, these peptides are added to the list, and the entire sequence is digested n times (given by param n, default 1000) and the list containing all the peptides is returned
 def digest(fasta_file, n=1000, protease='pepsin'):
 
     sequence = util.fasta_sequence(fasta_file)
 
     cleavage_table = load_protease(protease)
 
-    fragments = []
+    peptides = []
     for i in range(n):
         prev = 0
         for j in range(len(sequence) - 2):
@@ -34,7 +34,7 @@ def digest(fasta_file, n=1000, protease='pepsin'):
             p1p = sequence[j+1]
             prob = cleavage_table.loc[p1p, p1]
             if rn.random() < prob and j + 1 - prev >= 4 and rn.random() < 0.5:
-                fragments.append(sequence[prev:j+1])
+                peptides.append(sequence[prev:j+1])
                 prev = j + 1
 
-    return fragments
+    return peptides
