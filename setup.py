@@ -9,3 +9,5 @@ from Bio import SeqIO
 import openpyxl as opxl
 import multiprocessing as mp
 from functools import partial
+import tkinter as tk
+from tkinter import filedialog, ttk

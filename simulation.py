@@ -20,7 +20,7 @@ def load_protease(protease='pepsin'):
 
 
 #digest reads in a fasta file, loads the probability table for cleavages between residues specific to the protease param, and then iterates through the sequence and uses the probabilities from the table to determine where "cleavages" happen, these peptides are added to the list, and the entire sequence is digested n times (given by param n, default 1000) and the list containing all the peptides is returned
-def digest(fasta_file, n=1000, protease='pepsin'):
+def digest(fasta_file, protease='pepsin', n=1000):
 
     sequence = util.fasta_sequence(fasta_file)
 
