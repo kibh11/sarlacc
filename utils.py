@@ -9,3 +9,6 @@ def protease_file(protease):
     protease_file = Path('utility/data') / protease / f'{protease}.xlsx'
     return protease_file
 
+def aa_counter(protease):
+    text_file = Path('utility/data') / protease / f'aa_count.txt'
+    return text_file

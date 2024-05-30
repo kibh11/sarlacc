@@ -9,6 +9,19 @@ def retrieve_peptides(excel_file):
 def update_table(fasta_file, excel_file, protease):
     sequence = util.fasta_sequence(fasta_file)
 
+    text_file = util.aa_counter(protease)
+
+    # Step 1: Open the file and read its content
+    with open(text_file, 'r') as file:
+        current_value = file.read().strip()
+
+    current_value = int(current_value)
+
+    new_value = current_value + len(sequence)
+
+    with open(text_file, 'w') as file:
+        file.write(str(new_value))
+
     protease_sheet = util.protease_file(protease)
 
     peptides_df = retrieve_peptides(excel_file)
