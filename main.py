@@ -38,7 +38,6 @@ def process_files():
         print("Top 10 peptides:")
         for peptide in top_10_peptides:
             print(peptide)
-        print("Processing files...")
     else:
         print("Please select both FASTA and Excel files.")
 
