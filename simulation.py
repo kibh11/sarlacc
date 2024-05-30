@@ -15,6 +15,8 @@ def load_protease(protease='pepsin'):
 
     prob_table = cleavages.div(totals)
 
+    prob_table = prob_table.fillna(0)
+
     return prob_table
 
 

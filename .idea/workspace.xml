@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="added rudimentary gui for uploading new results/fasta">
-      <change afterPath="$PROJECT_DIR$/utility/legacy/data/init_pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/init_pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/utility/data/pepsin/zeroed_pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="updated gui, add protease select and cleaned up file select" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717088413579</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="updated gui, add protease select and cleaned up file select">
+      <option name="closed" value="true" />
+      <created>1717089941891</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717089941891</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,6 +248,7 @@
     <MESSAGE value="excel table overwriting issue fixed, need to consider additional layers for counting occurences." />
     <MESSAGE value="combined incr_occurence/cleavage into update_table using new counting methodology for tracking occurences from experimental results" />
     <MESSAGE value="added rudimentary gui for uploading new results/fasta" />
-    <option name="LAST_COMMIT_MESSAGE" value="added rudimentary gui for uploading new results/fasta" />
+    <MESSAGE value="updated gui, add protease select and cleaned up file select" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated gui, add protease select and cleaned up file select" />
   </component>
 </project>
