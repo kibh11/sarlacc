@@ -9,6 +9,29 @@ def protease_file(protease):
     protease_file = Path('utility/data') / protease / f'{protease}.xlsx'
     return protease_file
 
-def aa_counter(protease):
-    text_file = Path('utility/data') / protease / f'aa_count.txt'
-    return text_file
+# def extract_number(name):
+#     match = re.match(r'(\d+)', name)
+#
+#     if match:
+#         number_str = match.group(1)
+#         number = int(number_str)
+#         return number
+#     else:
+#         return None
+
+def load_protease(protease='pepsin'):
+    protease_sheet = util.protease_file(protease)
+
+    cleavage_table = pd.read_excel(protease_sheet, sheet_name=['cleavages', 'totals'], index_col=0)
+
+    cleavages = cleavage_table['cleavages']
+    totals = cleavage_table['totals']
+
+    cleavages = cleavages.astype(float)
+    totals = totals.astype(float)
+
+    prob_table = cleavages.div(totals)
+
+    prob_table = prob_table.fillna(0)
+
+    return prob_table

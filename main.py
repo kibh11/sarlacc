@@ -18,32 +18,32 @@ def open_excel_file():
         excel_status.set("Excel File Uploaded")
 
 def process_files():
-    if fasta_file and excel_file and protease.get():
+    if fasta_file and excel_file and protease.get() and protein_name.get():
         print("Both files have been selected, and the protease has been selected.")
 
-        exp.update_table(fasta_file, excel_file, protease.get())
+        exp.update_table(fasta_file, excel_file, protease.get(), protein_name.get())
 
-        print(sim.load_protease(protease.get()))
-
-        peptides = sim.digest(fasta_file, protease.get(), 1000)
-
-        peptide_counts = {}
-        for peptide in peptides:
-            peptide_counts[peptide] = peptide_counts.get(peptide, 0) + 1
-
-        sorted_peptide_counts = dict(sorted(peptide_counts.items(), key=lambda item: item[1], reverse=True))
-
-        top_10_peptides = list(sorted_peptide_counts.keys())[:10]
-
-        print("Top 10 simulated peptides:")
-        for peptide in top_10_peptides:
-            print(peptide)
+        # print(sim.load_protease(protease.get()))
+        #
+        # peptides = sim.digest(fasta_file, protease.get(), 1000)
+        #
+        # peptide_counts = {}
+        # for peptide in peptides:
+        #     peptide_counts[peptide] = peptide_counts.get(peptide, 0) + 1
+        #
+        # sorted_peptide_counts = dict(sorted(peptide_counts.items(), key=lambda item: item[1], reverse=True))
+        #
+        # top_10_peptides = list(sorted_peptide_counts.keys())[:10]
+        #
+        # print("Top 10 simulated peptides:")
+        # for peptide in top_10_peptides:
+        #     print(peptide)
     else:
         print("Please select both FASTA and Excel files.")
 
 root = tk.Tk()
 root.title("File Upload")
-root.geometry("300x300")
+root.geometry("300x350")
 
 fasta_file = None
 excel_file = None
@@ -62,7 +62,7 @@ excel_status = tk.StringVar()
 excel_status_label = ttk.Label(root, textvariable=excel_status)
 excel_status_label.pack(pady=(0, 10))
 
-proteases = ["pepsin", "trypsin", "chymotrypsin", "proteinase K"]
+proteases = ["pepsin"]
 
 protease_label = ttk.Label(root, text="Select a protease:")
 protease_label.pack(pady=(10, 0))
@@ -70,6 +70,13 @@ protease_label.pack(pady=(10, 0))
 protease = tk.StringVar()
 protease_dropdown = ttk.Combobox(root, textvariable=protease, values=proteases, state="readonly")
 protease_dropdown.pack(pady=10)
+
+protein_name_label = ttk.Label(root, text="Enter the protein name:")
+protein_name_label.pack(pady=(10, 0))
+
+protein_name = tk.StringVar()
+protein_name_entry = ttk.Entry(root, textvariable=protein_name)
+protein_name_entry.pack(pady=10)
 
 
 process_button = tk.Button(root, text="Process Files", command=process_files)

@@ -2,22 +2,7 @@ from setup import pd, rn, np, Path, SeqIO, opxl, mp, partial
 import utils as util
 
 #load_protease uses the protease param to load an excel sheet containing two sheets, with one counting the number of experimentally observed cleavages, and the other containing the total number of potential cleavage sites observed, the function then returns the number of cleavages divided by the number of total occurences as a probability table
-def load_protease(protease='pepsin'):
-    protease_sheet = util.protease_file(protease)
 
-    cleavage_table = pd.read_excel(protease_sheet, sheet_name=['cleavages', 'totals'], index_col=0)
-
-    cleavages = cleavage_table['cleavages']
-    totals = cleavage_table['totals']
-
-    cleavages = cleavages.astype(float)
-    totals = totals.astype(float)
-
-    prob_table = cleavages.div(totals)
-
-    prob_table = prob_table.fillna(0)
-
-    return prob_table
 
 
 
@@ -26,7 +11,7 @@ def digest(fasta_file, protease='pepsin', n=1000):
 
     sequence = util.fasta_sequence(fasta_file)
 
-    cleavage_table = load_protease(protease)
+    cleavage_table = util.load_protease(protease)
 
     peptides = []
     for i in range(n):

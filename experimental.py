@@ -1,26 +1,18 @@
 from setup import pd, rn, np, Path, SeqIO, opxl, mp, partial
 import utils as util
+import shutil
+import os
+from datetime import datetime
+
+
 
 def retrieve_peptides(excel_file):
     df = pd.read_excel(excel_file, engine='openpyxl')
     filtered_df = df.loc[(df.iloc[:, 1].notna()) & (df.iloc[:, 2].notna()), :]
     return filtered_df
 
-def update_table(fasta_file, excel_file, protease):
+def update_table(fasta_file, excel_file, protease, protein_name):
     sequence = util.fasta_sequence(fasta_file)
-
-    text_file = util.aa_counter(protease)
-
-    # Step 1: Open the file and read its content
-    with open(text_file, 'r') as file:
-        current_value = file.read().strip()
-
-    current_value = int(current_value)
-
-    new_value = current_value + len(sequence)
-
-    with open(text_file, 'w') as file:
-        file.write(str(new_value))
 
     protease_sheet = util.protease_file(protease)
 
@@ -47,6 +39,43 @@ def update_table(fasta_file, excel_file, protease):
                 elif start_index <= p1_start and end_index >= p1p_end:
                     totals_table.at[p1p, p1] += 1
 
+    print(totals_table)
+
     with pd.ExcelWriter(protease_sheet, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
         totals_table.to_excel(writer, sheet_name='totals')
         cleavage_table.to_excel(writer, sheet_name='cleavages')
+
+#___________________________________________________________________________
+
+    current_dir = os.path.dirname(protease_sheet)
+
+    # Set the destination directory
+    dest_dir = os.path.join(current_dir, "history")
+    os.makedirs(dest_dir, exist_ok=True)
+
+    # Get the list of files in the "history" folder, sorted by name
+    history_files = sorted(os.listdir(dest_dir))
+
+    # If the "history" folder is not empty
+    if history_files:
+        # Get the last file name
+        last_file_name = history_files[-1]
+
+        # Extract the amino acid count from the last file name
+        try:
+            aa_count = int(last_file_name.split("_")[0])
+        except ValueError:
+            aa_count = 0
+    else:
+        aa_count = 0
+
+    # Update the amino acid count
+    new_aa_count = aa_count + len(sequence)
+
+    # Construct the new file name
+    now = datetime.now()
+    new_file_name = f"{new_aa_count}_{protease}_{protein_name}_{now.strftime('%Y%m%d_%H%M%S')}.xlsx"
+    dest_file_path = os.path.join(dest_dir, new_file_name)
+
+    # Copy the Excel file to the destination directory with the new name
+    shutil.copy(protease_sheet, dest_file_path)
