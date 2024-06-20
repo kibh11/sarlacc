@@ -57,20 +57,17 @@ def update_table(fasta_file, excel_file, protease, protein_name):
     history_files = sorted(os.listdir(dest_dir))
 
     # If the "history" folder is not empty
-    if history_files:
-        # Get the last file name
-        last_file_name = history_files[-1]
-
-        # Extract the amino acid count from the last file name
+    max_aa_count = 0
+    for file in history_files:
         try:
-            aa_count = int(last_file_name.split("_")[0])
+            aa_count = int(file.split("_")[0])
+            if aa_count > max_aa_count:
+                max_aa_count = aa_count
         except ValueError:
-            aa_count = 0
-    else:
-        aa_count = 0
+            continue
 
     # Update the amino acid count
-    new_aa_count = aa_count + len(sequence)
+    new_aa_count = max_aa_count + len(sequence)
 
     # Construct the new file name
     now = datetime.now()
