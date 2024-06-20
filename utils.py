@@ -20,7 +20,7 @@ def protease_file(protease):
 #         return None
 
 def load_protease(protease='pepsin'):
-    protease_sheet = util.protease_file(protease)
+    protease_sheet = protease_file(protease)
 
     cleavage_table = pd.read_excel(protease_sheet, sheet_name=['cleavages', 'totals'], index_col=0)
 

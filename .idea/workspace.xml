@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="added protease aa analyzed counter">
-      <change afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/experimental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/aa_count.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/zeroed_pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/utility/data/pepsin/history/0_pepsin_proteinname_datetime.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +40,16 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2f92a2mRq3ahUFaAOQ4VydJ5f4g" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.main.executor": "Run",
     "Python.sim.executor": "Run",
     "Python.test.executor": "Run",
@@ -251,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717091269936</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working">
+      <option name="closed" value="true" />
+      <created>1718605512917</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718605512917</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,6 +271,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="setup" />
@@ -278,6 +284,7 @@
     <MESSAGE value="updated gui, add protease select and cleaned up file select" />
     <MESSAGE value="filled NaN vals in prob table with 0s" />
     <MESSAGE value="added protease aa analyzed counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="added protease aa analyzed counter" />
+    <MESSAGE value="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working" />
+    <option name="LAST_COMMIT_MESSAGE" value="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working" />
   </component>
 </project>
