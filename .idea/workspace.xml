@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="visualization prints out heatmap for slice of 3d df! Need to add slider between layers.">
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="heatmap with working slider">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718910645072</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="heatmap with working slider">
+      <option name="closed" value="true" />
+      <created>1718912601579</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1718912601579</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,6 +300,7 @@
     <MESSAGE value="added protease aa analyzed counter" />
     <MESSAGE value="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working" />
     <MESSAGE value="visualization prints out heatmap for slice of 3d df! Need to add slider between layers." />
-    <option name="LAST_COMMIT_MESSAGE" value="visualization prints out heatmap for slice of 3d df! Need to add slider between layers." />
+    <MESSAGE value="heatmap with working slider" />
+    <option name="LAST_COMMIT_MESSAGE" value="heatmap with working slider" />
   </component>
 </project>

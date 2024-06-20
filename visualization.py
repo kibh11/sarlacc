@@ -71,6 +71,13 @@ def show_heatmap_with_slider():
     fig, ax = plt.subplots(figsize=(10, 8))
     plt.subplots_adjust(bottom=0.2)  # Adjust bottom to make room for the slider
 
+    def on_closing():
+        window.destroy()
+        window.quit()
+
+    # Set the protocol for the window close button (X)
+    window.protocol("WM_DELETE_WINDOW", on_closing)
+
     # Function to update the heatmap
     def update(val):
         layer_idx = int(slider.val)
