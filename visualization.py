@@ -59,32 +59,53 @@ from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.widgets import Slider
 
 
-def show_heatmap():
-    # Extract the second "slice" (file) from the MultiIndex DataFrame
-    try:
-        second_layer_file = df_3d.index.levels[0][1]  # Assuming the second layer corresponds to the second file
-        df_2d = df_3d.xs(second_layer_file, level='file')
-    except IndexError:
-        print("Not enough files to extract the second layer.")
-        return
-
+def show_heatmap_with_slider():
     # Create a new Tkinter window
     window = tk.Tk()
-    window.title("Heatmap of the Second Layer of df_3d")
+    window.title("Heatmap Viewer")
 
     # Create a Matplotlib figure
     fig, ax = plt.subplots(figsize=(10, 8))
-    sns.heatmap(df_2d, annot=True, cmap="viridis", ax=ax)
+    plt.subplots_adjust(bottom=0.2)  # Adjust bottom to make room for the slider
 
+    # Function to update the heatmap
+    def update(val):
+        layer_idx = int(slider.val)
+        selected_file = df_3d.index.levels[0][layer_idx]
+        df_2d = df_3d.xs(selected_file, level='file')
+        ax.clear()
+        sns.heatmap(df_2d, annot=True, cmap="viridis", ax=ax, cbar=False)
+        ax.xaxis.set_ticks_position('top')
+        ax.xaxis.set_label_position('top')
+        ax.set_xlabel("Amino Acids", labelpad=20)
+        ax.set_ylabel("Amino Acids")
+        ax.set_title(f"Heatmap of Layer ({selected_file})", pad=40)
+        canvas.draw()
+
+    # Initial heatmap
+    initial_file = df_3d.index.levels[0][0]
+    df_2d = df_3d.xs(initial_file, level='file')
+    sns.heatmap(df_2d, annot=True, cmap="viridis", ax=ax, cbar=False)
     ax.xaxis.set_ticks_position('top')
     ax.xaxis.set_label_position('top')
+    ax.set_xlabel("Amino Acids", labelpad=20)
+    ax.set_ylabel("Amino Acids")
+    ax.set_title(f"Heatmap of Layer ({initial_file})", pad=40)
 
     # Create a Canvas to embed the Matplotlib figure
     canvas = FigureCanvasTkAgg(fig, master=window)
     canvas.draw()
     canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+    # Create a Slider
+    ax_slider = plt.axes([0.2, 0.05, 0.6, 0.03], facecolor='lightgoldenrodyellow')
+    slider = Slider(ax_slider, 'Layer', 0, len(df_3d.index.levels[0]) - 1, valinit=0, valfmt='%0.0f')
+
+    # Update the heatmap when the slider value changes
+    slider.on_changed(update)
 
     # Create a Quit button
     quit_button = ttk.Button(window, text="Quit", command=window.destroy)
@@ -93,5 +114,5 @@ def show_heatmap():
     # Start the Tkinter main loop
     window.mainloop()
 
-# Call the function to show the heatmap
-show_heatmap()
+# Call the function to show the heatmap with a slider
+show_heatmap_with_slider()
