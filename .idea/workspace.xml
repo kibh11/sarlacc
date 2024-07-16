@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="fixed aa counter, ran some data through">
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="reran small portion of data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/experimental.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/1171_pepsin_AQP4_20240617_005145.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/1333_pepsin_XylE_20240617_005207.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/1629_pepsin_SMO_20240620_155532.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/1721_pepsin_S100b_20240620_160749.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/2549_pepsin_Vkor_20240620_164318.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/2960_pepsin_SK1WT_20240620_164337.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/842_pepsin_phosb_20240617_003907.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +315,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718921066200</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="reran small portion of data, refactored import statements">
+      <option name="closed" value="true" />
+      <created>1721153523003</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1721153523003</updated>
+    </task>
+    <task id="LOCAL-00023" summary="reran small portion of data">
+      <option name="closed" value="true" />
+      <created>1721153546585</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1721153546585</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -361,6 +364,8 @@
     <MESSAGE value="heatmap with working slider" />
     <MESSAGE value="heatmap stops running when windows is closed" />
     <MESSAGE value="fixed aa counter, ran some data through" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed aa counter, ran some data through" />
+    <MESSAGE value="reran small portion of data, refactored import statements" />
+    <MESSAGE value="reran small portion of data" />
+    <option name="LAST_COMMIT_MESSAGE" value="reran small portion of data" />
   </component>
 </project>

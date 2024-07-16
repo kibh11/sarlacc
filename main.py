@@ -24,22 +24,6 @@ def process_files():
         print("Both files have been selected, and the protease has been selected.")
 
         exp.update_table(fasta_file, excel_file, protease.get(), protein_name.get())
-
-        # print(sim.load_protease(protease.get()))
-        #
-        # peptides = sim.digest(fasta_file, protease.get(), 1000)
-        #
-        # peptide_counts = {}
-        # for peptide in peptides:
-        #     peptide_counts[peptide] = peptide_counts.get(peptide, 0) + 1
-        #
-        # sorted_peptide_counts = dict(sorted(peptide_counts.items(), key=lambda item: item[1], reverse=True))
-        #
-        # top_10_peptides = list(sorted_peptide_counts.keys())[:10]
-        #
-        # print("Top 10 simulated peptides:")
-        # for peptide in top_10_peptides:
-        #     print(peptide)
     else:
         print("Please select both FASTA and Excel files.")
 
