@@ -1,15 +1,11 @@
-from setup import pd, rn, np, Path, SeqIO, opxl, mp, partial
-import utils as util
-import shutil
-import os
-from datetime import datetime
-
+from setup import util, pd, rn, np, Path, SeqIO, opxl, mp, partial, os, shutil, datetime
 
 
 def retrieve_peptides(excel_file):
     df = pd.read_excel(excel_file, engine='openpyxl')
     filtered_df = df.loc[(df.iloc[:, 1].notna()) & (df.iloc[:, 2].notna()), :]
     return filtered_df
+
 
 def update_table(fasta_file, excel_file, protease, protein_name):
     sequence = util.fasta_sequence(fasta_file)
@@ -27,7 +23,7 @@ def update_table(fasta_file, excel_file, protease, protein_name):
 
         for i in range(len(sequence) - 1):
             p1 = sequence[i]
-            p1p = sequence[i+1]
+            p1p = sequence[i + 1]
             p1_start = i + 1
             p1p_end = i + 2
             for j, peptide in enumerate(peptides):
@@ -45,18 +41,13 @@ def update_table(fasta_file, excel_file, protease, protein_name):
         totals_table.to_excel(writer, sheet_name='totals')
         cleavage_table.to_excel(writer, sheet_name='cleavages')
 
-#___________________________________________________________________________
-
     current_dir = os.path.dirname(protease_sheet)
 
-    # Set the destination directory
     dest_dir = os.path.join(current_dir, "history")
     os.makedirs(dest_dir, exist_ok=True)
 
-    # Get the list of files in the "history" folder, sorted by name
     history_files = sorted(os.listdir(dest_dir))
 
-    # If the "history" folder is not empty
     max_aa_count = 0
     for file in history_files:
         try:
@@ -66,13 +57,10 @@ def update_table(fasta_file, excel_file, protease, protein_name):
         except ValueError:
             continue
 
-    # Update the amino acid count
     new_aa_count = max_aa_count + len(sequence)
 
-    # Construct the new file name
     now = datetime.now()
     new_file_name = f"{new_aa_count}_{protease}_{protein_name}_{now.strftime('%Y%m%d_%H%M%S')}.xlsx"
     dest_file_path = os.path.join(dest_dir, new_file_name)
 
-    # Copy the Excel file to the destination directory with the new name
     shutil.copy(protease_sheet, dest_file_path)

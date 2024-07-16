@@ -1,23 +1,16 @@
 from setup import Path, SeqIO, pd
 
+
 def fasta_sequence(fasta_file):
     with open(fasta_file, 'r') as file:
         protein_seq = SeqIO.read(file, 'fasta').seq
     return protein_seq
 
+
 def protease_file(protease):
     protease_file = Path('utility/data') / protease / f'{protease}.xlsx'
     return protease_file
 
-# def extract_number(name):
-#     match = re.match(r'(\d+)', name)
-#
-#     if match:
-#         number_str = match.group(1)
-#         number = int(number_str)
-#         return number
-#     else:
-#         return None
 
 def load_protease(protease='pepsin'):
     protease_sheet = protease_file(protease)

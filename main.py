@@ -1,21 +1,23 @@
-from setup import plt, sns, SeqIO, tk, ttk, filedialog
-import utils as util
-import simulation as sim
-import experimental as exp
+from setup import util, plt, sns, SeqIO, tk, ttk, filedialog, re
+
 
 def open_fasta_file():
     global fasta_file
-    fasta_file = filedialog.askopenfilename(title="Select FASTA file", filetypes=[("FASTA files", "*.fasta")], parent=root)
+    fasta_file = filedialog.askopenfilename(title="Select FASTA file", filetypes=[("FASTA files", "*.fasta")],
+                                            parent=root)
     if fasta_file:
         print(f"Selected FASTA file: {fasta_file}")
         fasta_status.set("FASTA File Uploaded")
 
+
 def open_excel_file():
     global excel_file
-    excel_file = filedialog.askopenfilename(title="Select Excel file", filetypes=[("Excel files", "*.xlsx")], parent=root)
+    excel_file = filedialog.askopenfilename(title="Select Excel file", filetypes=[("Excel files", "*.xlsx")],
+                                            parent=root)
     if excel_file:
         print(f"Selected Excel file: {excel_file}")
         excel_status.set("Excel File Uploaded")
+
 
 def process_files():
     if fasta_file and excel_file and protease.get() and protein_name.get():
@@ -40,6 +42,7 @@ def process_files():
         #     print(peptide)
     else:
         print("Please select both FASTA and Excel files.")
+
 
 root = tk.Tk()
 root.title("File Upload")
@@ -78,10 +81,7 @@ protein_name = tk.StringVar()
 protein_name_entry = ttk.Entry(root, textvariable=protein_name)
 protein_name_entry.pack(pady=10)
 
-
 process_button = tk.Button(root, text="Process Files", command=process_files)
 process_button.pack(pady=10)
 
 root.mainloop()
-
-
