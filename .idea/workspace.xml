@@ -4,25 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="removed extraneous comments">
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2907_pepsin_SMO_20240717_120556.xlsx" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="removed extraneous print from experimental, checked changes">
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/experimental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/0_pepsin_proteinname_datetime.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/0_pepsin_proteinname_datetime.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/1333_pepsin_XylE_20240716_125544.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1333_pepsin_XylE_20240716_125544.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/2120_pepsin_SMO_20240716_125641.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2120_pepsin_SMO_20240716_125641.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/842_pepsin_phosB_20240716_125507.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/842_pepsin_phosB_20240716_125507.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/legacy/data/init_pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/legacy/data/init_pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/testing/20240129-PepsinDigestionformatted.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/20240129-PepsinDigestionformatted.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/testing/S100b.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/S100b.fasta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/testing/edited_20240129-PepsinDigestionformatted.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/edited_20240129-PepsinDigestionformatted.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/testing/edited_S100b.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/edited_S100b.fasta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +70,9 @@
     "Python.test.executor": "Run",
     "Python.visualization.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bhatk/PycharmProjects/sarlacc - Copy",
+    "last_opened_file_path": "C:/Users/bhatk/PycharmProjects/sarlacc-copy",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -93,7 +92,7 @@
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.visualization">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="sarlacc" />
       <option name="ENV_FILES" value="" />
@@ -356,7 +355,31 @@
       <option name="project" value="LOCAL" />
       <updated>1721157770982</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="refactored imports, removed setup file, added exp/sim/utils to source_files directory, changed utility to resources and refactored relevant code calling path">
+      <option name="closed" value="true" />
+      <created>1721238457543</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1721238457543</updated>
+    </task>
+    <task id="LOCAL-00026" summary="renamed utils to utilities, refactored relevant code, tested changes to ensure probability table was being correctly updated after changes">
+      <option name="closed" value="true" />
+      <created>1721238592125</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1721238592125</updated>
+    </task>
+    <task id="LOCAL-00027" summary="removed extraneous print from experimental, checked changes">
+      <option name="closed" value="true" />
+      <created>1721238726690</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1721238726690</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,6 +415,9 @@
     <MESSAGE value="reran small portion of data, refactored import statements" />
     <MESSAGE value="reran small portion of data" />
     <MESSAGE value="removed extraneous comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed extraneous comments" />
+    <MESSAGE value="refactored imports, removed setup file, added exp/sim/utils to source_files directory, changed utility to resources and refactored relevant code calling path" />
+    <MESSAGE value="renamed utils to utilities, refactored relevant code, tested changes to ensure probability table was being correctly updated after changes" />
+    <MESSAGE value="removed extraneous print from experimental, checked changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed extraneous print from experimental, checked changes" />
   </component>
 </project>
