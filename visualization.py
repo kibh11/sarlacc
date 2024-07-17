@@ -1,4 +1,12 @@
-from setup import util, pd, os, np, tk, ttk, FigureCanvasTkAgg, plt, sns, Slider
+import re
+import pandas as pd
+import os
+import tkinter as tk
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.widgets import Slider
+from tkinter import ttk
 
 
 def natural_sort_key(s):

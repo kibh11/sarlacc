@@ -1,4 +1,6 @@
-from setup import Path, SeqIO, pd
+from Bio import SeqIO
+from pathlib import Path
+import pandas as pd
 
 
 def fasta_sequence(fasta_file):
@@ -8,7 +10,9 @@ def fasta_sequence(fasta_file):
 
 
 def protease_file(protease):
-    protease_file = Path('utility/data') / protease / f'{protease}.xlsx'
+    current_file = Path(__file__).resolve()
+    project_root = current_file.parent.parent
+    protease_file = project_root / 'resources' / 'data' / protease / f'{protease}.xlsx'
     return protease_file
 
 

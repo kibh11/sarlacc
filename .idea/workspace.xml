@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="reran small portion of data">
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="removed extraneous comments">
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2907_pepsin_SMO_20240717_120556.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/experimental.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/0_pepsin_proteinname_datetime.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/0_pepsin_proteinname_datetime.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/1333_pepsin_XylE_20240716_125544.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1333_pepsin_XylE_20240716_125544.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/2120_pepsin_SMO_20240716_125641.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2120_pepsin_SMO_20240716_125641.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/history/842_pepsin_phosB_20240716_125507.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/842_pepsin_phosB_20240716_125507.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/legacy/data/init_pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/legacy/data/init_pepsin.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/testing/20240129-PepsinDigestionformatted.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/20240129-PepsinDigestionformatted.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/testing/S100b.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/S100b.fasta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/testing/edited_20240129-PepsinDigestionformatted.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/edited_20240129-PepsinDigestionformatted.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/testing/edited_S100b.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testing/edited_S100b.fasta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,20 +62,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.experimental.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.sim.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.visualization.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bhatk/PycharmProjects/sarlacc/utility/data/pepsin&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.experimental.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.sim.executor": "Run",
+    "Python.simulation.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.visualization.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/bhatk/PycharmProjects/sarlacc - Copy",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\data\pepsin" />
@@ -69,11 +86,11 @@
       <recent name="C:\Users\bhatk\PycharmProjects" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\source_files" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\data\pepsin\history" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\legacy\data" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\data\legacy" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea" />
-      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\testing" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -331,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721153546585</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="removed extraneous comments">
+      <option name="closed" value="true" />
+      <created>1721157770982</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1721157770982</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -366,6 +391,7 @@
     <MESSAGE value="fixed aa counter, ran some data through" />
     <MESSAGE value="reran small portion of data, refactored import statements" />
     <MESSAGE value="reran small portion of data" />
-    <option name="LAST_COMMIT_MESSAGE" value="reran small portion of data" />
+    <MESSAGE value="removed extraneous comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed extraneous comments" />
   </component>
 </project>

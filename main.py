@@ -1,9 +1,12 @@
-from setup import util, plt, sns, SeqIO, tk, ttk, filedialog, re
+import source_files.experimental as exp
+import source_files.simulation as sim
+import tkinter as tk
+from tkinter import filedialog, ttk
 
 
 def open_fasta_file():
     global fasta_file
-    fasta_file = filedialog.askopenfilename(title="Select FASTA file", filetypes=[("FASTA files", "*.fasta")],
+    fasta_file = tk.filedialog.askopenfilename(title="Select FASTA file", filetypes=[("FASTA files", "*.fasta")],
                                             parent=root)
     if fasta_file:
         print(f"Selected FASTA file: {fasta_file}")

@@ -1,10 +1,11 @@
-from setup import util, exp, sim, pd, rn, np, Path, SeqIO, opxl, mp, partial
+import source_files.utils as utils
+import random as rn
 
 
 def digest(fasta_file, protease='pepsin', n=1000):
-    sequence = util.fasta_sequence(fasta_file)
+    sequence = utils.fasta_sequence(fasta_file)
 
-    cleavage_table = util.load_protease(protease)
+    cleavage_table = utils.load_protease(protease)
 
     peptides = []
     for i in range(n):

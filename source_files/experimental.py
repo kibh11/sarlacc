@@ -1,4 +1,8 @@
-from setup import util, pd, rn, np, Path, SeqIO, opxl, mp, partial, os, shutil, datetime
+import source_files.utils as utils
+import pandas as pd
+import os
+from datetime import datetime
+import shutil
 
 
 def retrieve_peptides(excel_file):
@@ -8,9 +12,9 @@ def retrieve_peptides(excel_file):
 
 
 def update_table(fasta_file, excel_file, protease, protein_name):
-    sequence = util.fasta_sequence(fasta_file)
+    sequence = utils.fasta_sequence(fasta_file)
 
-    protease_sheet = util.protease_file(protease)
+    protease_sheet = utils.protease_file(protease)
 
     peptides_df = retrieve_peptides(excel_file)
     peptides = peptides_df.iloc[:, 0].tolist()
