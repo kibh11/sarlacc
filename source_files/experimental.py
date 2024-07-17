@@ -39,8 +39,6 @@ def update_table(fasta_file, excel_file, protease, protein_name):
                 elif start_index <= p1_start and end_index >= p1p_end:
                     totals_table.at[p1p, p1] += 1
 
-    print(totals_table)
-
     with pd.ExcelWriter(protease_sheet, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
         totals_table.to_excel(writer, sheet_name='totals')
         cleavage_table.to_excel(writer, sheet_name='cleavages')

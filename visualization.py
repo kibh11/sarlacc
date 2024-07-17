@@ -29,7 +29,7 @@ def load_protease(path_name):
     return table
 
 
-directory = 'utility/data/pepsin/history'
+directory = 'resources/data/pepsin/history'
 
 excel_files = sorted([f for f in os.listdir(directory) if f.endswith('.xlsx') or f.endswith('.xls')],
                      key=natural_sort_key)
