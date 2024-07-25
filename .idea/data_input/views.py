@@ -16,6 +16,7 @@ source_files_dir = os.path.join(project_root, 'source_files')
 sys.path.append(source_files_dir)
 
 import experimental as exp
+import simulation as sim
 
 # Create your views here.
 def data_input(request):
