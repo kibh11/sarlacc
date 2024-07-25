@@ -1,19 +1,106 @@
-<!-- templates/data_input/data_input.html -->
-{# {% extends 'base.html' %} #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Digestion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            background-color: #C62828;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+            padding: 20px;
+        }
+        .quadrant {
+            border: 1px solid #ddd;
+            padding: 20px;
+            overflow: auto;
+            max-height: 80vh;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <h1>Peptide Digestion</h1>
+</div>
 
-{% block content %}
-<h2>Data Input</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Process Files</button>
-</form>
+<div class="container">
+    <div class="quadrant" id="data-input">
+        <h2>Data Input</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Process Files</button>
+        </form>
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endblock %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <div class="quadrant" id="experiment-heatmap">
+        <h2>Experiment Heatmap</h2>
+        {% if experiment_heatmap_url %}
+        <img src="{{ experiment_heatmap_url }}" alt="Experiment Heatmap">
+        {% else %}
+        <p>No experiment heatmap available</p>
+        {% endif %}
+    </div>
+
+    <div class="quadrant" id="simulation-table">
+        <h2>Simulation Table</h2>
+        {% if simulation_table %}
+        {{ simulation_table|safe }}
+        {% else %}
+        <p>No simulation table available</p>
+        {% endif %}
+    </div>
+
+    <div class="quadrant" id="global-heatmap">
+        <h2>Global Heatmap</h2>
+        {% if global_heatmap_url %}
+        <form method="post">
+            {% csrf_token %}
+            {{ layer_form.as_p }}
+            <button type="submit">Update Heatmap</button>
+        </form>
+        <img src="{{ global_heatmap_url }}" alt="Global Heatmap">
+        {% else %}
+        <p>No global heatmap available</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="django data input app WORKING. codew is extremely ugly still, IF NEED TO GO BACK BECAUSE OF PROBLEMS,&#10;&#10;can either go to this commit, with data input working&#10;&#10;previous commit to this one, where django project started, but no working app&#10;&#10;or one commit even further back, no django project made/added">
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2018_pepsin_AQP4_20240725_132420.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source_files/S100b.fasta" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="changed simulation loop to account for missed cleavages using exponent in place of random half chance">
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/1333_pepsin_XylE_20240716_125544.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2860_pepsin_phosb_20240725_132455.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/2120_pepsin_SMO_20240716_125641.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/2907_pepsin_SMO_20240717_120556.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1689_pepsin_XylE_20240725_132349.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/3694_pepsin_SMO_20240717_124524.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/411_pepsin_SK1WT_20240725_113403.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/4481_pepsin_SMO_20240717_124859.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/5268_pepsin_SMO_20240717_125044.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/5679_pepsin_SK1WT_20240725_034504.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3688_pepsin_Vkor_20240725_132517.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/6090_pepsin_SK1WT_20240725_034726.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/6932_pepsin_phosb_20240725_035302.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/842_pepsin_phosB_20240716_125507.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1198_pepsin_SMO_20240725_132212.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source_files/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source_files/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/experimental.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721897755492</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="changed simulation loop to account for missed cleavages using exponent in place of random half chance">
+      <option name="closed" value="true" />
+      <created>1721939920168</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1721939920168</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,7 +410,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initial" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="setup" />
     <MESSAGE value="rebase" />
@@ -438,6 +434,7 @@
     <MESSAGE value="removed extraneous print from experimental, checked changes" />
     <MESSAGE value="django project started with data_input app initialized" />
     <MESSAGE value="django data input app WORKING. codew is extremely ugly still, IF NEED TO GO BACK BECAUSE OF PROBLEMS,&#10;&#10;can either go to this commit, with data input working&#10;&#10;previous commit to this one, where django project started, but no working app&#10;&#10;or one commit even further back, no django project made/added" />
-    <option name="LAST_COMMIT_MESSAGE" value="django data input app WORKING. codew is extremely ugly still, IF NEED TO GO BACK BECAUSE OF PROBLEMS,&#10;&#10;can either go to this commit, with data input working&#10;&#10;previous commit to this one, where django project started, but no working app&#10;&#10;or one commit even further back, no django project made/added" />
+    <MESSAGE value="changed simulation loop to account for missed cleavages using exponent in place of random half chance" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed simulation loop to account for missed cleavages using exponent in place of random half chance" />
   </component>
 </project>
