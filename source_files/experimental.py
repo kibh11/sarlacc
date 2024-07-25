@@ -1,9 +1,15 @@
-import source_files.utilities as utils
 import pandas as pd
 import os
 from datetime import datetime
 import shutil
+import sys
+import os
 
+
+current_dir = os.path.dirname(__file__)
+sys.path.append(os.path.abspath(os.path.join(current_dir, '..')))
+
+import source_files.utilities as utils
 
 def retrieve_peptides(excel_file):
     df = pd.read_excel(excel_file, engine='openpyxl')

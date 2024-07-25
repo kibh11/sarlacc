@@ -1,0 +1,19 @@
+<!-- templates/data_input/data_input.html -->
+{# {% extends 'base.html' %} #}
+
+{% block content %}
+<h2>Data Input</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Process Files</button>
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

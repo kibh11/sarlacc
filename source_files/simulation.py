@@ -1,5 +1,12 @@
-import source_files.utilities as utils
 import random as rn
+import sys
+import os
+
+
+current_dir = os.path.dirname(__file__)
+sys.path.append(os.path.abspath(os.path.join(current_dir, '..')))
+
+import source_files.utilities as utils
 
 
 def digest(fasta_file, protease='pepsin', n=1000):

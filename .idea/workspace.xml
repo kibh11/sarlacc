@@ -4,23 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="removed extraneous print from experimental, checked changes">
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sarlacc_django/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="django project started with data_input app initialized">
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/5679_pepsin_SK1WT_20240725_034504.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/6090_pepsin_SK1WT_20240725_034726.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source_files/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sarlacc_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sarlacc_django/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sarlacc_django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sarlacc_django/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source_files/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/experimental.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source_files/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -63,6 +62,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
     "Python.experimental.executor": "Run",
     "Python.main.executor": "Run",
     "Python.sim.executor": "Run",
@@ -379,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721238726690</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="django project started with data_input app initialized">
+      <option name="closed" value="true" />
+      <created>1721242215286</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1721242215286</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -418,6 +426,7 @@
     <MESSAGE value="refactored imports, removed setup file, added exp/sim/utils to source_files directory, changed utility to resources and refactored relevant code calling path" />
     <MESSAGE value="renamed utils to utilities, refactored relevant code, tested changes to ensure probability table was being correctly updated after changes" />
     <MESSAGE value="removed extraneous print from experimental, checked changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed extraneous print from experimental, checked changes" />
+    <MESSAGE value="django project started with data_input app initialized" />
+    <option name="LAST_COMMIT_MESSAGE" value="django project started with data_input app initialized" />
   </component>
 </project>
