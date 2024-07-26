@@ -14,6 +14,8 @@ import urllib.parse
 import matplotlib
 matplotlib.use('Agg')
 from django.shortcuts import redirect
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 
 # Add this function at the top of your views.py
 def home(request):
@@ -43,8 +45,22 @@ def data_input(request):
             selected_layer = request.POST.get('layer')
             protease = request.POST.get('protease')
             if protease and selected_layer:
-                global_heatmap_base64, excel_files = global_heatmap(protease, selected_layer)
-                global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
+                # Create a unique cache key
+                cache_key = f'heatmap_{protease}_{selected_layer}'
+
+                # Try to get the cached heatmap
+                cached_heatmap = cache.get(cache_key)
+
+                if cached_heatmap:
+                    global_heatmap_url, excel_files = cached_heatmap
+                else:
+                    # If not in cache, generate the heatmap
+                    global_heatmap_base64, excel_files = global_heatmap(protease, selected_layer)
+                    global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
+
+                    # Cache the result for 1 hour (3600 seconds)
+                    cache.set(cache_key, (global_heatmap_url, excel_files), 3600)
+
                 return JsonResponse({
                     'global_heatmap_url': global_heatmap_url,
                     'excel_files': excel_files
@@ -84,6 +100,8 @@ def data_input(request):
                 finally:
                     default_storage.delete(temp_fasta_path)
                     default_storage.delete(temp_excel_path)
+
+                cache.clear()
 
             else:
                 messages.error(request, 'Invalid form submission. Please check your inputs.')

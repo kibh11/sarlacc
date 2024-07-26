@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peptide Digestion</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,7 +74,7 @@
 
 <div class="container">
     <div class="quadrant" id="data-input">
-        <h2>Data Input</h2>
+        <h2>Input Data:</h2>
         <form id="dataInputForm" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
@@ -89,7 +91,7 @@
     </div>
 
     <div class="quadrant" id="experiment-heatmap">
-        <h2>Experiment Heatmap</h2>
+        <h2>Experiment Heatmap:</h2>
         {% if experiment_heatmap_url %}
         <img src="{{ experiment_heatmap_url }}" alt="Experiment Heatmap">
         {% else %}
@@ -98,7 +100,7 @@
     </div>
 
     <div class="quadrant" id="simulation-table">
-        <h2>Simulation Table</h2>
+        <h2>Simulation Table:</h2>
         {% if simulation_table %}
         {{ simulation_table|safe }}
         {% else %}
@@ -107,7 +109,7 @@
     </div>
 
     <div class="quadrant" id="global-heatmap">
-        <h2>Global Heatmap</h2>
+        <h2>Global Heatmap:</h2>
         {% if global_heatmap_url %}
         <div id="slider-container">
             <input type="range" id="layer-slider" min="0" max="{{ excel_files|length|add:'-1' }}" value="0" step="1">
