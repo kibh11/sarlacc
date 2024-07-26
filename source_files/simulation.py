@@ -3,7 +3,9 @@ import math
 import sys
 import os
 import statistics
-
+import pandas as pd
+from tabulate import tabulate
+from Bio.Seq import Seq
 
 current_dir = os.path.dirname(__file__)
 sys.path.append(os.path.abspath(os.path.join(current_dir, '..')))
@@ -11,7 +13,7 @@ sys.path.append(os.path.abspath(os.path.join(current_dir, '..')))
 import source_files.utilities as utils
 
 
-def digest(fasta_file, protease='pepsin', exponent = 6, n=1000):
+def digest(fasta_file, protease='pepsin', exponent = 1, n=1000):
     sequence = utils.fasta_sequence(fasta_file)
 
     cleavage_table = utils.load_protease(protease)
@@ -31,48 +33,35 @@ def digest(fasta_file, protease='pepsin', exponent = 6, n=1000):
                     new_count = (prev_count[0], prev_count[1], prev_count[2] + 1)
                     peptides_dict[sequence[prev:j + 1]] = new_count
                 else:
-                    peptides_dict[sequence[prev:j + 1]] = (prev + 1, j + 2, 1)
+                    peptides_dict[sequence[prev:j + 1]] = (prev + 1, j + 1, 1)
                 prev = j + 1
-
-    #test
-    result_list = []
-
-    for tuple_value in peptides_dict.values():
-        if len(tuple_value) >= 2:
-            calculation = (tuple_value[1] + 1) - tuple_value[0]
-            result_list.append(calculation)
 
     return peptides_dict
 
-def main():
-    # Hardcoded example paths and parameters
-    example_fasta_file = 'S100b.fasta'
-    example_protease = 'pepsin'
-    example_exponent = 5
-    example_n = 1000
-
-    # Call the digest function with hardcoded values
-    peptides_dict = digest(example_fasta_file, protease=example_protease, exponent=example_exponent, n=example_n)
-    print("Peptides Dictionary:")
-    for peptide, (start, end, count) in peptides_dict.items():
-        print(f"Peptide: {peptide}, Start: {start}, End: {end}, Count: {count}")
-
-
-    total_length = 0
-    total_count = 0
+def show_table(peptides_dict, n):
+    table_data = []
 
     for peptide, (start, end, count) in peptides_dict.items():
-        length = end - start
-        total_length += length * count
-        total_count += count
+        length = end - start + 1
+        frequency = count / n
 
-    if total_count > 0:
-        weighted_average_length = total_length / total_count
-    else:
-        weighted_average_length = 0
+        if isinstance(peptide, Seq):
+            clean_peptide = str(peptide)
+        else:
+            clean_peptide = peptide
 
-    print(f"Mean peptide length: {weighted_average_length}")
+        clean_peptide = ''.join(c for c in clean_peptide if c.isalpha())
 
-# Ensure the main function is called when the script is run
-if __name__ == "__main__":
-    main()
+        table_data.append([start, end, clean_peptide, length, count, f"{frequency*100:.2f}%"])
+
+    df = pd.DataFrame(table_data, columns=['Start', 'End', 'Peptide', 'Length', 'Count', 'Frequency'])
+    df = df.sort_values('Count', ascending=False)
+
+    html_table = df.to_html(index=False, classes='table', border=0, escape=False)
+
+    return html_table
+
+# Usage example:
+def simulate_and_show_table(fasta_file, protease='pepsin', exponent=1, n=1000):
+    peptides_dict = digest(fasta_file, protease, exponent, n)
+    return show_table(peptides_dict, n)

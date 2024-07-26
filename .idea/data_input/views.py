@@ -30,7 +30,7 @@ sys.path.append(source_files_dir)
 
 import experimental as exp
 from experimental import global_heatmap
-import simulation as sim
+from simulation import simulate_and_show_table
 
 def data_input(request):
     global_heatmap_url = None
@@ -90,7 +90,7 @@ def data_input(request):
                     # experiment_heatmap = exp.experiment_heatmap()
                     # experiment_heatmap_url = plot_to_img(experiment_heatmap)
                     #
-                    # simulation_table = sim.show_table()
+                    simulation_table = simulate_and_show_table(temp_fasta_full_path, protease)
 
                     global_heatmap_base64, excel_files = global_heatmap(protease)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"

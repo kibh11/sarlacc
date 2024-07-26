@@ -35,17 +35,38 @@
             max-width: 100%;
             height: auto;
         }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 14px;
+            table-layout: fixed;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 4px;
             text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         th {
             background-color: #f2f2f2;
+        }
+        .start-column, .end-column {
+            width: 50px;
+        }
+        .length-column, .count-column, .frequency-column {
+            width: 80px;
+        }
+        .peptide-column {
+            width: auto;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         #confirmationPopup {
             display: none;
@@ -64,6 +85,11 @@
         }
         #layer-slider {
             width: 100%;
+        }
+        @media screen and (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -102,7 +128,9 @@
     <div class="quadrant" id="simulation-table">
         <h2>Simulation Table:</h2>
         {% if simulation_table %}
-        {{ simulation_table|safe }}
+        <div class="table-container">
+            {{ simulation_table|safe }}
+        </div>
         {% else %}
         <p>No simulation table available. Please input data first.</p>
         {% endif %}
@@ -201,6 +229,34 @@
                 }, 300); // Wait for 300ms of inactivity before sending request
             });
         }
+
+        // Add this new function
+        function adjustTableColumns() {
+            var table = document.querySelector('.table-container table');
+            if (table) {
+                var headerCells = table.rows[0].cells;
+                var dataCells = table.rows[1].cells;
+                headerCells[0].classList.add('start-column');
+                headerCells[1].classList.add('end-column');
+                headerCells[2].classList.add('peptide-column');
+                headerCells[3].classList.add('length-column');
+                headerCells[4].classList.add('count-column');
+                headerCells[5].classList.add('frequency-column');
+
+                for (var i = 1; i < table.rows.length; i++) {
+                    var row = table.rows[i];
+                    row.cells[0].classList.add('start-column');
+                    row.cells[1].classList.add('end-column');
+                    row.cells[2].classList.add('peptide-column');
+                    row.cells[3].classList.add('length-column');
+                    row.cells[4].classList.add('count-column');
+                    row.cells[5].classList.add('frequency-column');
+                }
+            }
+        }
+
+        // Call the function when the page loads
+        adjustTableColumns();
     });
 </script>
 </body>
