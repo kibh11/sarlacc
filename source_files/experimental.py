@@ -145,5 +145,6 @@ def global_heatmap(protease, selected_layer=None):
     image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
 
     plt.close(fig)
+    plt.close('all')
 
     return image_base64, excel_files

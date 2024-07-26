@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="added website quadrants, have working global heatmap">
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/10176_pepsin_AQP4_20240726_010844.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/4017_pepsin_AQP4_20240725_235553.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/4859_pepsin_phosb_20240726_003907.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/5701_pepsin_phosb_20240726_003957.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/6192_pepsin_XylE_20240726_004107.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/7020_pepsin_Vkor_20240726_005857.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/7848_pepsin_Vkor_20240726_005912.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/8177_pepsin_AQP4_20240726_005938.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/9019_pepsin_phosb_20240726_010119.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/9847_pepsin_Vkor_20240726_010441.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="minor improvements to data input (confirmation box), also added sliding global map">
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/10667_pepsin_XylE_20240726_011753.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/11509_pepsin_phosb_20240726_012945.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -413,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721943420095</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="minor improvements to data input (confirmation box), also added sliding global map">
+      <option name="closed" value="true" />
+      <created>1721974570929</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1721974570929</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="setup" />
     <MESSAGE value="rebase" />
     <MESSAGE value="experimental incrementations (not working/tested) + refactored utils.py" />
     <MESSAGE value="experimental incr functions working with test data, need to look at excel reformatting" />
@@ -454,6 +452,7 @@
     <MESSAGE value="django data input app WORKING. codew is extremely ugly still, IF NEED TO GO BACK BECAUSE OF PROBLEMS,&#10;&#10;can either go to this commit, with data input working&#10;&#10;previous commit to this one, where django project started, but no working app&#10;&#10;or one commit even further back, no django project made/added" />
     <MESSAGE value="changed simulation loop to account for missed cleavages using exponent in place of random half chance" />
     <MESSAGE value="added website quadrants, have working global heatmap" />
-    <option name="LAST_COMMIT_MESSAGE" value="added website quadrants, have working global heatmap" />
+    <MESSAGE value="minor improvements to data input (confirmation box), also added sliding global map" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor improvements to data input (confirmation box), also added sliding global map" />
   </component>
 </project>

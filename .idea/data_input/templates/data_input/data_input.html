@@ -165,28 +165,38 @@
             var excelFiles = {{ excel_files|safe }};
             slider.max = excelFiles.length - 1;
 
+            let debounceTimer;
+
             slider.addEventListener('input', function() {
-                var index = slider.max - slider.value;  // Reverse the order
-                var selectedLayer = excelFiles[index];
-                currentLayerSpan.textContent = selectedLayer;
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(function() {
+                    var index = slider.max - slider.value;  // Reverse the order
+                    var selectedLayer = excelFiles[index];
+                    currentLayerSpan.textContent = selectedLayer;
 
-                // Use AJAX to update the heatmap
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '{% url "data_input" %}', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+                    // Show loading indicator
+                    heatmapImg.style.opacity = '0.5';
 
-                xhr.onload = function() {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText);
-                        heatmapImg.src = response.global_heatmap_url;
-                        excelFiles = response.excel_files;
-                    } else {
-                        console.error('Request failed. Status:', xhr.status);
-                    }
-                };
+                    // Use AJAX to update the heatmap
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '{% url "data_input" %}', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
 
-                xhr.send('protease={{ protease }}&layer=' + encodeURIComponent(selectedLayer));
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            heatmapImg.src = response.global_heatmap_url;
+                            excelFiles = response.excel_files;
+                            heatmapImg.style.opacity = '1'; // Remove loading indicator
+                        } else {
+                            console.error('Request failed. Status:', xhr.status);
+                            heatmapImg.style.opacity = '1'; // Remove loading indicator even if there's an error
+                        }
+                    };
+
+                    xhr.send('protease={{ protease }}&layer=' + encodeURIComponent(selectedLayer));
+                }, 300); // Wait for 300ms of inactivity before sending request
             });
         }
     });

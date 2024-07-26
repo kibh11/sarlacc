@@ -11,6 +11,14 @@ import sys
 import io
 import base64
 import urllib.parse
+import matplotlib
+matplotlib.use('Agg')
+from django.shortcuts import redirect
+
+# Add this function at the top of your views.py
+def home(request):
+    return redirect('data_input')
+
 
 current_dir = os.path.dirname(__file__)
 project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
