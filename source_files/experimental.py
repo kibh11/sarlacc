@@ -94,10 +94,10 @@ def load_protease(path_name):
 
     return table
 
-def global_heatmap(selected_layer=None):
+def global_heatmap(protease, selected_layer=None):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(current_dir)
-    directory = os.path.join(parent_dir, 'resources', 'data', 'pepsin', 'history')
+    directory = os.path.join(parent_dir, 'resources', 'data', protease, 'history')
 
     if not os.path.exists(directory):
         raise FileNotFoundError(f"The directory {directory} does not exist.")

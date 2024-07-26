@@ -45,6 +45,24 @@
         th {
             background-color: #f2f2f2;
         }
+        #confirmationPopup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid black;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #slider-container {
+            margin-bottom: 20px;
+        }
+        #layer-slider {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -55,10 +73,10 @@
 <div class="container">
     <div class="quadrant" id="data-input">
         <h2>Data Input</h2>
-        <form method="post" enctype="multipart/form-data">
+        <form id="dataInputForm" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Process Files</button>
+            <button type="button" onclick="showConfirmation()">Process Files</button>
         </form>
 
         {% if messages %}
@@ -75,7 +93,7 @@
         {% if experiment_heatmap_url %}
         <img src="{{ experiment_heatmap_url }}" alt="Experiment Heatmap">
         {% else %}
-        <p>No experiment heatmap available</p>
+        <p>No experiment heatmap available. Please input data first.</p>
         {% endif %}
     </div>
 
@@ -84,23 +102,94 @@
         {% if simulation_table %}
         {{ simulation_table|safe }}
         {% else %}
-        <p>No simulation table available</p>
+        <p>No simulation table available. Please input data first.</p>
         {% endif %}
     </div>
 
     <div class="quadrant" id="global-heatmap">
         <h2>Global Heatmap</h2>
         {% if global_heatmap_url %}
-        <form method="post">
-            {% csrf_token %}
-            {{ layer_form.as_p }}
-            <button type="submit">Update Heatmap</button>
-        </form>
-        <img src="{{ global_heatmap_url }}" alt="Global Heatmap">
+        <div id="slider-container">
+            <input type="range" id="layer-slider" min="0" max="{{ excel_files|length|add:'-1' }}" value="0" step="1">
+            <p>Current Layer: <span id="current-layer">{{ excel_files.0 }}</span></p>
+        </div>
+        <img id="global-heatmap-img" src="{{ global_heatmap_url }}" alt="Global Heatmap">
         {% else %}
-        <p>No global heatmap available</p>
+        <p>No global heatmap available. Please input data first.</p>
         {% endif %}
     </div>
 </div>
+
+<!-- Confirmation Popup -->
+<div id="confirmationPopup">
+    <h3>Confirm File Processing</h3>
+    <p>FASTA File: <span id="fastaFileName"></span></p>
+    <p>Excel File: <span id="excelFileName"></span></p>
+    <p>Protease: <span id="proteaseSelected"></span></p>
+    <p>Protein Name: <span id="proteinName"></span></p>
+    <button onclick="confirmProcessing()">Confirm</button>
+    <button onclick="cancelProcessing()">Cancel</button>
+</div>
+
+<script>
+    function showConfirmation() {
+        var form = document.getElementById('dataInputForm');
+        var fastaFile = form.elements['fasta_file'].files[0];
+        var excelFile = form.elements['excel_file'].files[0];
+        var protease = form.elements['protease'].value;
+        var protein = form.elements['protein_name'].value;
+
+        document.getElementById('fastaFileName').textContent = fastaFile ? fastaFile.name : 'No file selected';
+        document.getElementById('excelFileName').textContent = excelFile ? excelFile.name : 'No file selected';
+        document.getElementById('proteaseSelected').textContent = protease;
+        document.getElementById('proteinName').textContent = protein;
+
+        document.getElementById('confirmationPopup').style.display = 'block';
+    }
+
+    function confirmProcessing() {
+        document.getElementById('confirmationPopup').style.display = 'none';
+        document.getElementById('dataInputForm').submit();
+    }
+
+    function cancelProcessing() {
+        document.getElementById('confirmationPopup').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var slider = document.getElementById('layer-slider');
+        var currentLayerSpan = document.getElementById('current-layer');
+        var heatmapImg = document.getElementById('global-heatmap-img');
+
+        if (slider) {
+            var excelFiles = {{ excel_files|safe }};
+            slider.max = excelFiles.length - 1;
+
+            slider.addEventListener('input', function() {
+                var index = slider.max - slider.value;  // Reverse the order
+                var selectedLayer = excelFiles[index];
+                currentLayerSpan.textContent = selectedLayer;
+
+                // Use AJAX to update the heatmap
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '{% url "data_input" %}', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        heatmapImg.src = response.global_heatmap_url;
+                        excelFiles = response.excel_files;
+                    } else {
+                        console.error('Request failed. Status:', xhr.status);
+                    }
+                };
+
+                xhr.send('protease={{ protease }}&layer=' + encodeURIComponent(selectedLayer));
+            });
+        }
+    });
+</script>
 </body>
 </html>
