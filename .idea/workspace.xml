@@ -4,21 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="implemented caching (speed has improved, but need to check post requests), also added favicon.ico, but not being recognized/not working yet">
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/12329_pepsin_AQP4_20240726_041459.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/12740_pepsin_Sk1WT_20240726_041810.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/12832_pepsin_S100b_20240726_042046.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/12924_pepsin_S100b_20240726_042458.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13016_pepsin_S100b_20240726_043040.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13108_pepsin_S100b_20240726_043341.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13200_pepsin_S100b_20240726_043700.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13292_pepsin_S100b_20240726_044009.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13384_pepsin_S100b_20240726_044145.xlsx" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="favicon.ico working, also added simulation table with correct formatting">
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13660_pepsin_S100b_20240726_044928.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13752_pepsin_S100b_20240726_045258.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13844_pepsin_S100b_20240726_045520.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/13936_pepsin_S100b_20240726_045742.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14028_pepsin_S100b_20240726_045809.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14120_pepsin_S100b_20240726_045825.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14212_pepsin_S100b_20240726_045950.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14304_pepsin_S100b_20240726_050218.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14396_pepsin_S100b_20240726_050234.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14488_pepsin_S100b_20240726_050252.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14580_pepsin_S100b_20240726_130656.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14672_pepsin_S100b_20240726_130911.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14764_pepsin_S100b_20240726_131004.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14856_pepsin_S100b_20240726_131518.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/14948_pepsin_S100b_20240726_131740.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15040_pepsin_S100b_20240726_132217.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15132_pepsin_S100b_20240726_132253.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15224_pepsin_S100b_20240726_132719.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15316_pepsin_S100b_20240726_132739.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15408_pepsin_S100b_20240726_133148.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15500_pepsin_S100b_20240726_133236.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15592_pepsin_S100b_20240726_133253.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15684_pepsin_S100b_20240726_133320.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15776_pepsin_S100b_20240726_133741.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/15868_pepsin_S100b_20240726_133935.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/16696_pepsin_Vkor_20240726_134012.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/17025_pepsin_AQP4_20240726_150925.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/17354_pepsin_AQP4_20240726_154030.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/17446_pepsin_S100b_20240726_154118.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/17775_pepsin_AQP4_20240801_015301.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/18104_pepsin_AQP4_20240801_020017.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/18433_pepsin_AQP4_20240801_020301.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/18762_pepsin_AQP4_20240801_020410.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/19091_pepsin_AQP4_20240801_020436.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/19420_pepsin_AQP4_20240801_020517.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/19749_pepsin_AQP4_20240801_020812.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/20078_pepsin_AQP4_20240801_020856.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/20407_pepsin_AQP4_20240801_021340.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/20736_pepsin_AQP4_20240801_021656.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/21065_pepsin_AQP4_20240801_021809.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/21394_pepsin_AQP4_20240801_021907.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/21723_pepsin_AQP4_20240801_021936.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/22052_pepsin_AQP4_20240801_022014.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/22381_pepsin_AQP4_20240801_022044.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/22710_pepsin_AQP4_20240801_022145.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/23039_pepsin_AQP4_20240801_022236.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/static/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source_files/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,23 +95,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.experimental.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.sim.executor": "Run",
-    "Python.simulation.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.visualization.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bhatk/PycharmProjects/sarlacc/.idea/data_input/static",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.experimental.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sim.executor&quot;: &quot;Run&quot;,
+    &quot;Python.simulation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.visualization.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bhatk/PycharmProjects/sarlacc/.idea/data_input/static&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea\data_input\static" />
@@ -85,11 +121,11 @@
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea\data_input\static" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\source_files" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\data\pepsin\history" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\legacy\data" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\utility\data\legacy" />
-      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea" />
     </key>
   </component>
   <component name="RunManager" selected="Python.visualization">
@@ -435,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721978378216</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="favicon.ico working, also added simulation table with correct formatting">
+      <option name="closed" value="true" />
+      <created>1721987183773</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1721987183773</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -451,7 +495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="experimental incr functions working with test data, need to look at excel reformatting" />
     <MESSAGE value="excel table overwriting issue fixed, need to consider additional layers for counting occurences." />
     <MESSAGE value="combined incr_occurence/cleavage into update_table using new counting methodology for tracking occurences from experimental results" />
     <MESSAGE value="added rudimentary gui for uploading new results/fasta" />
@@ -476,6 +519,7 @@
     <MESSAGE value="minor improvements to data input (confirmation box), also added sliding global map" />
     <MESSAGE value="added debouncing to slider and made data_input the default app" />
     <MESSAGE value="implemented caching (speed has improved, but need to check post requests), also added favicon.ico, but not being recognized/not working yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented caching (speed has improved, but need to check post requests), also added favicon.ico, but not being recognized/not working yet" />
+    <MESSAGE value="favicon.ico working, also added simulation table with correct formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="favicon.ico working, also added simulation table with correct formatting" />
   </component>
 </project>

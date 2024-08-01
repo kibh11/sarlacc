@@ -3,33 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peptide Digestion</title>
+    <title>sarlacc</title>
     {% load static %}
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Serif', serif;
+            font-weight: 400; /* Regular weight */
+            font-style: normal; /* Normal style */
             margin: 0;
             padding: 0;
         }
+
         .banner {
-            background-color: #C62828;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            background-color: #FF8800;
+            color: #FFDDAA;
+            text-align: left;
+            padding: 40px 0 10px 100px;
+            font-weight: 800;
+            font-style: italic;
+            font-size: 24px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .banner h1 {
+            margin: 0;
+            padding: 0;
+            font-weight: 800;
+            font-style: italic;
         }
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
+            grid-template-rows: auto minmax(300px, 1fr) minmax(300px, 1fr);
+            grid-template-areas:
+                "input experiment"
+                "table heatmap"
+                "table heatmap";
             gap: 20px;
-            padding: 20px;
+            padding: 0 20px 20px 20px;
+            min-height: 100vh;
+            margin-bottom: 40px; /* Added bottom margin */
         }
+
         .quadrant {
             border: 1px solid #ddd;
             padding: 20px;
             overflow: auto;
-            max-height: 80vh;
+        }
+
+        .quadrant#data-input {
+            grid-area: input;
+        }
+
+        .quadrant#experiment-heatmap {
+            grid-area: experiment;
+        }
+
+        .quadrant#global-heatmap,
+        .quadrant#simulation-table {
+            max-height: 660px;
+            grid-area: heatmap;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .quadrant#global-heatmap {
+            overflow: auto;
+        }
+
+        .quadrant#simulation-table {
+            grid-area: table;
+        }
+        .heatmap-container,
+        .table-container {
+            flex-grow: 1;
+            overflow: auto;
+        }
+        #global-heatmap-img {
+            width: 100%;
+            height: auto;
         }
         img {
             max-width: 100%;
@@ -37,7 +96,8 @@
         }
         .table-container {
             width: 100%;
-            overflow-x: auto;
+            overflow-y: auto;
+            max-height: 100%;
         }
         table {
             width: 100%;
@@ -55,6 +115,9 @@
         }
         th {
             background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
         .start-column, .end-column {
             width: 50px;
@@ -95,7 +158,7 @@
 </head>
 <body>
 <div class="banner">
-    <h1>Peptide Digestion</h1>
+    <h1>sarlacc</h1>
 </div>
 
 <div class="container">
@@ -140,10 +203,12 @@
         <h2>Global Heatmap:</h2>
         {% if global_heatmap_url %}
         <div id="slider-container">
-            <input type="range" id="layer-slider" min="0" max="{{ excel_files|length|add:'-1' }}" value="0" step="1">
-            <p>Current Layer: <span id="current-layer">{{ excel_files.0 }}</span></p>
+            <input type="range" id="layer-slider" min="0" max="{{ excel_files|length|add:'-1' }}" value="{{ excel_files|length|add:'-1' }}" step="1">
+            <span id="current-layer" style="display: none;">{{ excel_files.0 }}</span>
         </div>
-        <img id="global-heatmap-img" src="{{ global_heatmap_url }}" alt="Global Heatmap">
+        <div class="heatmap-container">
+            <img id="global-heatmap-img" src="{{ global_heatmap_url }}" alt="Global Heatmap">
+        </div>
         {% else %}
         <p>No global heatmap available. Please input data first.</p>
         {% endif %}
@@ -230,7 +295,6 @@
             });
         }
 
-        // Add this new function
         function adjustTableColumns() {
             var table = document.querySelector('.table-container table');
             if (table) {
@@ -255,8 +319,30 @@
             }
         }
 
-        // Call the function when the page loads
-        adjustTableColumns();
+        function adjustQuadrantHeight() {
+            var container = document.querySelector('.container');
+            var globalHeatmapQuadrant = document.querySelector('.quadrant#global-heatmap');
+            var simulationTableQuadrant = document.querySelector('.quadrant#simulation-table');
+            var tableContainer = simulationTableQuadrant.querySelector('.table-container');
+
+            if (container && globalHeatmapQuadrant && simulationTableQuadrant && tableContainer) {
+                var containerHeight = container.clientHeight;
+                var globalHeatmapHeight = globalHeatmapQuadrant.clientHeight;
+                var maxTableHeight = containerHeight - simulationTableQuadrant.offsetTop;
+
+                tableContainer.style.maxHeight = maxTableHeight + 'px';
+            }
+        }
+
+        // Call the functions when the page loads and when the window is resized
+        window.addEventListener('load', function() {
+            adjustTableColumns();
+            adjustQuadrantHeight();
+        });
+        window.addEventListener('resize', adjustQuadrantHeight);
+
+        // Adjust quadrant height when a new image is loaded
+        document.getElementById('global-heatmap-img').addEventListener('load', adjustQuadrantHeight);
     });
 </script>
 </body>
