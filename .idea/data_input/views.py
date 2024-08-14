@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 import os
@@ -6,21 +6,15 @@ from django.conf import settings
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.contrib import messages
-from .forms import DataInputForm
+from .forms import DataInputForm, SimulationForm
 import sys
 import io
 import base64
 import urllib.parse
 import matplotlib
 matplotlib.use('Agg')
-from django.shortcuts import redirect
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
-
-# Add this function at the top of your views.py
-def home(request):
-    return redirect('data_input')
-
 
 current_dir = os.path.dirname(__file__)
 project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
@@ -32,33 +26,36 @@ import experimental as exp
 from experimental import global_heatmap
 from simulation import simulate_and_show_table
 
+def home(request):
+    return redirect('data_input')
+
 def data_input(request):
+    print("View called")
     global_heatmap_url = None
-    experiment_heatmap_url = None
     simulation_table = None
     excel_files = []
+    form = DataInputForm()
+    simulation_form = SimulationForm()
     protease = None
 
     if request.method == 'POST':
+        print("POST request received")
+        print("POST data:", request.POST)
+        print("FILES:", request.FILES)
+
         if 'layer' in request.POST:
-            # Handle AJAX request for updating global heatmap
+            print("Handling layer request")
             selected_layer = request.POST.get('layer')
             protease = request.POST.get('protease')
             if protease and selected_layer:
-                # Create a unique cache key
                 cache_key = f'heatmap_{protease}_{selected_layer}'
-
-                # Try to get the cached heatmap
                 cached_heatmap = cache.get(cache_key)
 
                 if cached_heatmap:
                     global_heatmap_url, excel_files = cached_heatmap
                 else:
-                    # If not in cache, generate the heatmap
                     global_heatmap_base64, excel_files = global_heatmap(protease, selected_layer)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
-
-                    # Cache the result for 1 hour (3600 seconds)
                     cache.set(cache_key, (global_heatmap_url, excel_files), 3600)
 
                 return JsonResponse({
@@ -67,8 +64,35 @@ def data_input(request):
                 })
             else:
                 return JsonResponse({'error': 'Invalid request'}, status=400)
+        elif 'simulate_digestion' in request.POST:
+            print("Simulation form submitted")
+            simulation_form = SimulationForm(request.POST, request.FILES)
+            if simulation_form.is_valid():
+                print("Simulation form is valid")
+                fasta_file = simulation_form.cleaned_data['simulation_fasta_file']
+                protease = simulation_form.cleaned_data['simulation_protease']
+                runs = simulation_form.cleaned_data['simulation_runs']
+
+                temp_fasta_path = default_storage.save('temp_simulation_fasta.fasta', ContentFile(fasta_file.read()))
+                temp_fasta_full_path = os.path.join(settings.MEDIA_ROOT, temp_fasta_path)
+
+                try:
+                    print("Generating simulation table")
+                    simulation_table = simulate_and_show_table(temp_fasta_full_path, protease, n=runs)
+                    print("Generating global heatmap")
+                    global_heatmap_base64, excel_files = global_heatmap(protease)
+                    global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
+                    print("Simulation completed successfully")
+                except Exception as e:
+                    print(f"Error in simulation: {str(e)}")
+                    messages.error(request, f'Error in simulation: {str(e)}')
+                finally:
+                    default_storage.delete(temp_fasta_path)
+            else:
+                print("Simulation form is invalid")
+                print("Form errors:", simulation_form.errors)
         else:
-            # Handle regular form submission
+            print("Data input form submitted")
             form = DataInputForm(request.POST, request.FILES)
             if form.is_valid():
                 fasta_file = form.cleaned_data['fasta_file']
@@ -76,7 +100,6 @@ def data_input(request):
                 protease = form.cleaned_data['protease']
                 protein_name = form.cleaned_data['protein_name']
 
-                # Process the files
                 temp_fasta_path = default_storage.save('temp_fasta.fasta', ContentFile(fasta_file.read()))
                 temp_excel_path = default_storage.save('temp_excel.xlsx', ContentFile(excel_file.read()))
 
@@ -87,9 +110,6 @@ def data_input(request):
                     exp.update_table(temp_fasta_full_path, temp_excel_full_path, protease, protein_name)
                     messages.success(request, 'Files processed successfully.')
 
-                    # experiment_heatmap = exp.experiment_heatmap()
-                    # experiment_heatmap_url = plot_to_img(experiment_heatmap)
-                    #
                     simulation_table = simulate_and_show_table(temp_fasta_full_path, protease)
 
                     global_heatmap_base64, excel_files = global_heatmap(protease)
@@ -105,12 +125,10 @@ def data_input(request):
 
             else:
                 messages.error(request, 'Invalid form submission. Please check your inputs.')
-    else:
-        form = DataInputForm()
 
     context = {
         'form': form,
-        'experiment_heatmap_url': experiment_heatmap_url,
+        'simulation_form': simulation_form,
         'global_heatmap_url': global_heatmap_url,
         'simulation_table': simulation_table,
         'excel_files': excel_files,

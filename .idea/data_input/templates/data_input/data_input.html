@@ -10,8 +10,8 @@
     <style>
         body {
             font-family: 'Noto Serif', serif;
-            font-weight: 400; /* Regular weight */
-            font-style: normal; /* Normal style */
+            font-weight: 400;
+            font-style: normal;
             margin: 0;
             padding: 0;
         }
@@ -42,13 +42,13 @@
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto minmax(300px, 1fr) minmax(300px, 1fr);
             grid-template-areas:
-                "input experiment"
+                "simulate input"
                 "table heatmap"
                 "table heatmap";
             gap: 20px;
             padding: 0 20px 20px 20px;
             min-height: 100vh;
-            margin-bottom: 40px; /* Added bottom margin */
+            margin-bottom: 40px;
         }
 
         .quadrant {
@@ -57,12 +57,12 @@
             overflow: auto;
         }
 
-        .quadrant#data-input {
-            grid-area: input;
+        .quadrant#simulate-digestion {
+            grid-area: simulate;
         }
 
-        .quadrant#experiment-heatmap {
-            grid-area: experiment;
+        .quadrant#data-input {
+            grid-area: input;
         }
 
         .quadrant#global-heatmap,
@@ -162,55 +162,47 @@
 </div>
 
 <div class="container">
+    <div class="quadrant" id="simulate-digestion">
+        <h2>Simulate Digestion:</h2>
+        <form id="simulationForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ simulation_form.as_p }}
+            <button type="submit" name="simulate_digestion">Digest</button>
+        </form>
+    </div>
+
     <div class="quadrant" id="data-input">
-        <h2>Input Data:</h2>
+        <h2>Experimental Data Input:</h2>
         <form id="dataInputForm" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="button" onclick="showConfirmation()">Process Files</button>
         </form>
-
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>
-
-    <div class="quadrant" id="experiment-heatmap">
-        <h2>Experiment Heatmap:</h2>
-        {% if experiment_heatmap_url %}
-        <img src="{{ experiment_heatmap_url }}" alt="Experiment Heatmap">
-        {% else %}
-        <p>No experiment heatmap available. Please input data first.</p>
-        {% endif %}
     </div>
 
     <div class="quadrant" id="simulation-table">
         <h2>Simulation Table:</h2>
-        {% if simulation_table %}
         <div class="table-container">
+            {% if simulation_table %}
             {{ simulation_table|safe }}
+            {% else %}
+            <p>No simulation table available. Please simulate digestion first.</p>
+            {% endif %}
         </div>
-        {% else %}
-        <p>No simulation table available. Please input data first.</p>
-        {% endif %}
     </div>
 
     <div class="quadrant" id="global-heatmap">
         <h2>Global Heatmap:</h2>
         {% if global_heatmap_url %}
         <div id="slider-container">
-            <input type="range" id="layer-slider" min="0" max="{{ excel_files|length|add:'-1' }}" value="{{ excel_files|length|add:'-1' }}" step="1">
+            <input type="range" id="layer-slider" min="0" max="{{ excel_files|length|add:'-1' }}" value="0" step="1">
             <span id="current-layer" style="display: none;">{{ excel_files.0 }}</span>
         </div>
         <div class="heatmap-container">
             <img id="global-heatmap-img" src="{{ global_heatmap_url }}" alt="Global Heatmap">
         </div>
         {% else %}
-        <p>No global heatmap available. Please input data first.</p>
+        <p>No global heatmap available. Please provide a valid protein and experimental data.</p>
         {% endif %}
     </div>
 </div>
@@ -225,6 +217,15 @@
     <button onclick="confirmProcessing()">Confirm</button>
     <button onclick="cancelProcessing()">Cancel</button>
 </div>
+
+<!-- Messages -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <script>
     function showConfirmation() {
@@ -259,13 +260,14 @@
         if (slider) {
             var excelFiles = {{ excel_files|safe }};
             slider.max = excelFiles.length - 1;
+            slider.value = slider.max;  // Start at the maximum value (left side)
 
             let debounceTimer;
 
             slider.addEventListener('input', function() {
                 clearTimeout(debounceTimer);
                 debounceTimer = setTimeout(function() {
-                    var index = slider.max - slider.value;  // Reverse the order
+                    var index = slider.max - slider.value;  // Reverse the index
                     var selectedLayer = excelFiles[index];
                     currentLayerSpan.textContent = selectedLayer;
 

@@ -22,3 +22,23 @@ class DataInputForm(forms.Form):
         label='Protein Name',
         required=True
     )
+
+class SimulationForm(forms.Form):
+    simulation_fasta_file = forms.FileField(
+        label='FASTA File',
+        widget=forms.FileInput(attrs={'accept': '.fasta,.fa,.fna'}),
+        required=True
+    )
+    simulation_protease = forms.ChoiceField(
+        choices=[('pepsin', 'Pepsin')],
+        label='Select a protease',
+        required=True
+    )
+    simulation_runs = forms.IntegerField(
+        label='Number of Runs',
+        min_value=1,
+        max_value=999,
+        initial=1,
+        required=True,
+        widget=forms.NumberInput(attrs={'type': 'number', 'min': '1', 'max': '999'})
+    )
