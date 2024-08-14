@@ -35,7 +35,7 @@ class SimulationForm(forms.Form):
         required=True
     )
     simulation_runs = forms.IntegerField(
-        label='Number of Runs',
+        label='Number of runs',
         min_value=1,
         max_value=999,
         initial=1,

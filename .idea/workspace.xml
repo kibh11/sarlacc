@@ -4,89 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="fixed bottom quadrant formatting, changed banner/favicon formatting">
-      <change afterPath="$PROJECT_DIR$/.idea/data_input/static/excel_info.png" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="created siimulation form that generates simulation table/global heatmap indepedent of experimental data. needs further testing">
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/4937_pepsin_Vkor_20240814_023932.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/5029_pepsin_S100b_20240814_024125.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/5871_pepsin_phosb_20240814_024431.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/6362_pepsin_XylE_20240814_024604.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/10176_pepsin_AQP4_20240726_010844.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/10667_pepsin_XylE_20240726_011753.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/11509_pepsin_phosb_20240726_012945.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/1198_pepsin_SMO_20240725_132212.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2091_pepsin_S100B_20240814_020308.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/12000_pepsin_XylE_20240726_021648.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3780_pepsin_XylE_20240814_020405.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/12329_pepsin_AQP4_20240726_041459.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/12740_pepsin_Sk1WT_20240726_041810.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/12832_pepsin_S100b_20240726_042046.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/12924_pepsin_S100b_20240726_042458.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13016_pepsin_S100b_20240726_043040.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13108_pepsin_S100b_20240726_043341.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13200_pepsin_S100b_20240726_043700.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13292_pepsin_S100b_20240726_044009.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13384_pepsin_S100b_20240726_044145.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13476_pepsin_S100b_20240726_044225.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13568_pepsin_S100b_20240726_044503.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13660_pepsin_S100b_20240726_044928.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13752_pepsin_S100b_20240726_045258.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13844_pepsin_S100b_20240726_045520.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/13936_pepsin_S100b_20240726_045742.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14028_pepsin_S100b_20240726_045809.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14120_pepsin_S100b_20240726_045825.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14212_pepsin_S100b_20240726_045950.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14304_pepsin_S100b_20240726_050218.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14396_pepsin_S100b_20240726_050234.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14488_pepsin_S100b_20240726_050252.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14580_pepsin_S100b_20240726_130656.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14672_pepsin_S100b_20240726_130911.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14764_pepsin_S100b_20240726_131004.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14856_pepsin_S100b_20240726_131518.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/14948_pepsin_S100b_20240726_131740.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15040_pepsin_S100b_20240726_132217.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15132_pepsin_S100b_20240726_132253.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15224_pepsin_S100b_20240726_132719.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15316_pepsin_S100b_20240726_132739.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15408_pepsin_S100b_20240726_133148.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15500_pepsin_S100b_20240726_133236.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15592_pepsin_S100b_20240726_133253.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15684_pepsin_S100b_20240726_133320.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15776_pepsin_S100b_20240726_133741.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/15868_pepsin_S100b_20240726_133935.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/16696_pepsin_Vkor_20240726_134012.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/1689_pepsin_XylE_20240725_132349.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1999_pepsin_PhosB_20240814_020249.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/17025_pepsin_AQP4_20240726_150925.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/17354_pepsin_AQP4_20240726_154030.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/17446_pepsin_S100b_20240726_154118.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/17775_pepsin_AQP4_20240801_015301.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/18104_pepsin_AQP4_20240801_020017.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/18433_pepsin_AQP4_20240801_020301.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/18762_pepsin_AQP4_20240801_020410.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/19091_pepsin_AQP4_20240801_020436.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/19420_pepsin_AQP4_20240801_020517.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/19749_pepsin_AQP4_20240801_020812.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/20078_pepsin_AQP4_20240801_020856.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/2018_pepsin_AQP4_20240725_132420.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/20407_pepsin_AQP4_20240801_021340.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1157_pepsin_Vkor_20240814_020231.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/20736_pepsin_AQP4_20240801_021656.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/21065_pepsin_AQP4_20240801_021809.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/21394_pepsin_AQP4_20240801_021907.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/21723_pepsin_AQP4_20240801_021936.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/22052_pepsin_AQP4_20240801_022014.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2502_pepsin_SK1_20240814_020325.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/22381_pepsin_AQP4_20240801_022044.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/22710_pepsin_AQP4_20240801_022145.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/23039_pepsin_AQP4_20240801_022236.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/23368_pepsin_AQP4_20240801_022402.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3289_pepsin_SMO_20240814_020345.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/2860_pepsin_phosb_20240725_132455.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/3688_pepsin_Vkor_20240725_132517.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/4109_pepsin_AQP4_20240814_022247.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/4017_pepsin_AQP4_20240725_235553.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/411_pepsin_SK1WT_20240725_113403.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/329_pepsin_AQP4_20240814_020209.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/4859_pepsin_phosb_20240726_003907.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/5701_pepsin_phosb_20240726_003957.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/6192_pepsin_XylE_20240726_004107.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/7020_pepsin_Vkor_20240726_005857.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/7848_pepsin_Vkor_20240726_005912.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/8177_pepsin_AQP4_20240726_005938.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/9019_pepsin_phosb_20240726_010119.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/9847_pepsin_Vkor_20240726_010441.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -520,7 +445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722497108480</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="created siimulation form that generates simulation table/global heatmap indepedent of experimental data. needs further testing">
+      <option name="closed" value="true" />
+      <created>1723621139463</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1723621139463</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +469,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="combined incr_occurence/cleavage into update_table using new counting methodology for tracking occurences from experimental results" />
     <MESSAGE value="added rudimentary gui for uploading new results/fasta" />
     <MESSAGE value="updated gui, add protease select and cleaned up file select" />
     <MESSAGE value="filled NaN vals in prob table with 0s" />
@@ -561,6 +493,7 @@
     <MESSAGE value="implemented caching (speed has improved, but need to check post requests), also added favicon.ico, but not being recognized/not working yet" />
     <MESSAGE value="favicon.ico working, also added simulation table with correct formatting" />
     <MESSAGE value="fixed bottom quadrant formatting, changed banner/favicon formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bottom quadrant formatting, changed banner/favicon formatting" />
+    <MESSAGE value="created siimulation form that generates simulation table/global heatmap indepedent of experimental data. needs further testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="created siimulation form that generates simulation table/global heatmap indepedent of experimental data. needs further testing" />
   </component>
 </project>

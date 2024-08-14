@@ -30,7 +30,6 @@ def home(request):
     return redirect('data_input')
 
 def data_input(request):
-    print("View called")
     global_heatmap_url = None
     simulation_table = None
     excel_files = []
@@ -39,12 +38,8 @@ def data_input(request):
     protease = None
 
     if request.method == 'POST':
-        print("POST request received")
-        print("POST data:", request.POST)
-        print("FILES:", request.FILES)
-
         if 'layer' in request.POST:
-            print("Handling layer request")
+            # Handle AJAX request for updating global heatmap
             selected_layer = request.POST.get('layer')
             protease = request.POST.get('protease')
             if protease and selected_layer:
@@ -65,10 +60,8 @@ def data_input(request):
             else:
                 return JsonResponse({'error': 'Invalid request'}, status=400)
         elif 'simulate_digestion' in request.POST:
-            print("Simulation form submitted")
             simulation_form = SimulationForm(request.POST, request.FILES)
             if simulation_form.is_valid():
-                print("Simulation form is valid")
                 fasta_file = simulation_form.cleaned_data['simulation_fasta_file']
                 protease = simulation_form.cleaned_data['simulation_protease']
                 runs = simulation_form.cleaned_data['simulation_runs']
@@ -77,22 +70,18 @@ def data_input(request):
                 temp_fasta_full_path = os.path.join(settings.MEDIA_ROOT, temp_fasta_path)
 
                 try:
-                    print("Generating simulation table")
                     simulation_table = simulate_and_show_table(temp_fasta_full_path, protease, n=runs)
-                    print("Generating global heatmap")
                     global_heatmap_base64, excel_files = global_heatmap(protease)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
-                    print("Simulation completed successfully")
+                    messages.success(request, 'Simulation completed successfully.')
                 except Exception as e:
-                    print(f"Error in simulation: {str(e)}")
                     messages.error(request, f'Error in simulation: {str(e)}')
                 finally:
                     default_storage.delete(temp_fasta_path)
             else:
-                print("Simulation form is invalid")
-                print("Form errors:", simulation_form.errors)
+                messages.error(request, 'Invalid simulation form submission. Please check your inputs.')
         else:
-            print("Data input form submitted")
+            # This is for experimental data input
             form = DataInputForm(request.POST, request.FILES)
             if form.is_valid():
                 fasta_file = form.cleaned_data['fasta_file']
@@ -108,23 +97,20 @@ def data_input(request):
 
                 try:
                     exp.update_table(temp_fasta_full_path, temp_excel_full_path, protease, protein_name)
-                    messages.success(request, 'Files processed successfully.')
-
-                    simulation_table = simulate_and_show_table(temp_fasta_full_path, protease)
+                    messages.success(request, 'Experimental data processed successfully.')
 
                     global_heatmap_base64, excel_files = global_heatmap(protease)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
 
                 except Exception as e:
-                    messages.error(request, f'Error processing files: {str(e)}')
+                    messages.error(request, f'Error processing experimental data: {str(e)}')
                 finally:
                     default_storage.delete(temp_fasta_path)
                     default_storage.delete(temp_excel_path)
 
                 cache.clear()
-
             else:
-                messages.error(request, 'Invalid form submission. Please check your inputs.')
+                messages.error(request, 'Invalid experimental data form submission. Please check your inputs.')
 
     context = {
         'form': form,
