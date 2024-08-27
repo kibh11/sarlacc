@@ -66,7 +66,7 @@
         }
 
         .quadrant#global-heatmap,
-        .quadrant#simulation-table {
+        .quadrant#peptide-table {
             max-height: 660px;
             grid-area: heatmap;
             display: flex;
@@ -78,7 +78,7 @@
             overflow: auto;
         }
 
-        .quadrant#simulation-table {
+        .quadrant#peptide-table {
             grid-area: table;
         }
         .heatmap-container,
@@ -180,13 +180,13 @@
         </form>
     </div>
 
-    <div class="quadrant" id="simulation-table">
-        <h2>Simulation Table:</h2>
+    <div class="quadrant" id="peptide-table">
+        <h2>Peptide Table:</h2>
         <div class="table-container">
-            {% if simulation_table %}
-            {{ simulation_table|safe }}
+            {% if peptide_table %}
+            {{ peptide_table|safe }}
             {% else %}
-            <p>No simulation table available. Please simulate digestion first.</p>
+            <p>No peptide table available. Please process data first.</p>
             {% endif %}
         </div>
     </div>
@@ -324,13 +324,13 @@
         function adjustQuadrantHeight() {
             var container = document.querySelector('.container');
             var globalHeatmapQuadrant = document.querySelector('.quadrant#global-heatmap');
-            var simulationTableQuadrant = document.querySelector('.quadrant#simulation-table');
-            var tableContainer = simulationTableQuadrant.querySelector('.table-container');
+            var peptideTableQuadrant = document.querySelector('.quadrant#peptide-table');
+            var tableContainer = peptideTableQuadrant.querySelector('.table-container');
 
-            if (container && globalHeatmapQuadrant && simulationTableQuadrant && tableContainer) {
+            if (container && globalHeatmapQuadrant && peptideTableQuadrant && tableContainer) {
                 var containerHeight = container.clientHeight;
                 var globalHeatmapHeight = globalHeatmapQuadrant.clientHeight;
-                var maxTableHeight = containerHeight - simulationTableQuadrant.offsetTop;
+                var maxTableHeight = containerHeight - peptideTableQuadrant.offsetTop;
 
                 tableContainer.style.maxHeight = maxTableHeight + 'px';
             }

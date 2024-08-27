@@ -22,6 +22,11 @@ class DataInputForm(forms.Form):
         label='Protein Name',
         required=True
     )
+    compare_with_simulation = forms.BooleanField(
+        label='Compare with simulation',
+        required=False,
+        initial=False
+    )
 
 class SimulationForm(forms.Form):
     simulation_fasta_file = forms.FileField(

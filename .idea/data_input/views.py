@@ -22,16 +22,16 @@ project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
 source_files_dir = os.path.join(project_root, 'source_files')
 sys.path.append(source_files_dir)
 
-import experimental as exp
-from experimental import global_heatmap
+from experimental import update_table, global_heatmap
 from simulation import simulate_and_show_table
+from comparison import simulate_digestion, process_experimental_data, compare_results
 
 def home(request):
     return redirect('data_input')
 
 def data_input(request):
     global_heatmap_url = None
-    simulation_table = None
+    peptide_table = None
     excel_files = []
     form = DataInputForm()
     simulation_form = SimulationForm()
@@ -88,6 +88,7 @@ def data_input(request):
                 excel_file = form.cleaned_data['excel_file']
                 protease = form.cleaned_data['protease']
                 protein_name = form.cleaned_data['protein_name']
+                compare_with_simulation = form.cleaned_data['compare_with_simulation']
 
                 temp_fasta_path = default_storage.save('temp_fasta.fasta', ContentFile(fasta_file.read()))
                 temp_excel_path = default_storage.save('temp_excel.xlsx', ContentFile(excel_file.read()))
@@ -96,8 +97,14 @@ def data_input(request):
                 temp_excel_full_path = os.path.join(settings.MEDIA_ROOT, temp_excel_path)
 
                 try:
-                    exp.update_table(temp_fasta_full_path, temp_excel_full_path, protease, protein_name)
-                    messages.success(request, 'Experimental data processed successfully.')
+                    if compare_with_simulation:
+                        simulation_results = simulate_digestion(temp_fasta_full_path, protease, n=999)
+                        experimental_results = process_experimental_data(temp_excel_full_path)
+                        peptide_table = compare_results(experimental_results, simulation_results)
+                        messages.success(request, 'Experimental data processed and compared with simulation successfully.')
+                    else:
+                        update_table(temp_fasta_full_path, temp_excel_full_path, protease, protein_name)
+                        messages.success(request, 'Experimental data processed successfully.')
 
                     global_heatmap_base64, excel_files = global_heatmap(protease)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
@@ -116,7 +123,7 @@ def data_input(request):
         'form': form,
         'simulation_form': simulation_form,
         'global_heatmap_url': global_heatmap_url,
-        'simulation_table': simulation_table,
+        'peptide_table': peptide_table,
         'excel_files': excel_files,
         'protease': protease,
     }

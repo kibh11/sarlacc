@@ -4,25 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="fixed experimental data also generating simulation result">
-      <change afterPath="$PROJECT_DIR$/resources/data/chymotrypsin/chymotrypsin.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/chymotrypsin/history/0_chymotrypsin_proteinname_datetime.xlsx" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="forms fixed">
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1249_pepsin_Vkor_20240827_160306.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2091_pepsin_phosb_20240827_160402.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2502_pepsin_sk1_20240827_160418.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3289_pepsin_smo_20240827_160440.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3780_pepsin_XylE_20240827_160512.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/421_pepsin_S100b_20240827_155412.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source_files/comparison.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/1157_pepsin_Vkor_20240814_020231.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/1999_pepsin_PhosB_20240814_020249.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/2091_pepsin_S100B_20240814_020308.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/2502_pepsin_SK1_20240814_020325.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/3289_pepsin_SMO_20240814_020345.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/329_pepsin_AQP4_20240814_020209.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/329_pepsin_AQP4_20240814_020209.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/history/329_pepsin_AQP4_20240827_144130.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/3780_pepsin_XylE_20240814_020405.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/4109_pepsin_AQP4_20240814_022247.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/4937_pepsin_Vkor_20240814_023932.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/5029_pepsin_S100b_20240814_024125.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/5871_pepsin_phosb_20240814_024431.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/6362_pepsin_XylE_20240814_024604.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/history/7149_pepsin_SMO_20240814_024722.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -472,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723621698122</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="forms fixed">
+      <option name="closed" value="true" />
+      <created>1724790243996</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1724790243996</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -488,7 +489,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="updated gui, add protease select and cleaned up file select" />
     <MESSAGE value="filled NaN vals in prob table with 0s" />
     <MESSAGE value="added protease aa analyzed counter" />
     <MESSAGE value="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working" />
@@ -513,6 +513,7 @@
     <MESSAGE value="fixed bottom quadrant formatting, changed banner/favicon formatting" />
     <MESSAGE value="created siimulation form that generates simulation table/global heatmap indepedent of experimental data. needs further testing" />
     <MESSAGE value="fixed experimental data also generating simulation result" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed experimental data also generating simulation result" />
+    <MESSAGE value="forms fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="forms fixed" />
   </component>
 </project>
