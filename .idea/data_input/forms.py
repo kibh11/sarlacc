@@ -13,7 +13,7 @@ class DataInputForm(forms.Form):
         required=True
     )
     protease = forms.ChoiceField(
-        choices=[('pepsin', 'Pepsin'), ('chymotrypsin', 'Chymotrypsin')],
+        choices=[('pepsin', 'Pepsin'), ('nepenthesinii', 'Nepenthesin II')],
         label='Select a protease',
         required=True
     )
@@ -35,15 +35,15 @@ class SimulationForm(forms.Form):
         required=True
     )
     simulation_protease = forms.ChoiceField(
-        choices=[('pepsin', 'Pepsin'), ('chymotrypsin', 'Chymotrypsin')],
+        choices=[('pepsin', 'Pepsin'), ('nepenthesinii', 'Nepenthesin II')],
         label='Select a protease',
         required=True
     )
     simulation_runs = forms.IntegerField(
         label='Number of runs',
         min_value=1,
-        max_value=999,
-        initial=999,
+        max_value=100,
+        initial=10,
         required=True,
         widget=forms.NumberInput(attrs={'type': 'number', 'min': '1', 'max': '999'})
     )

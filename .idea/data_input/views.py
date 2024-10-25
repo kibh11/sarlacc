@@ -73,6 +73,7 @@ def data_input(request):
                     simulation_table = simulate_and_show_table(temp_fasta_full_path, protease, n=runs)
                     global_heatmap_base64, excel_files = global_heatmap(protease)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
+                    peptide_table = simulation_table
                     messages.success(request, 'Simulation completed successfully.')
                 except Exception as e:
                     messages.error(request, f'Error in simulation: {str(e)}')
@@ -98,7 +99,7 @@ def data_input(request):
 
                 try:
                     if compare_with_simulation:
-                        simulation_results = simulate_digestion(temp_fasta_full_path, protease, n=999)
+                        simulation_results = simulate_digestion(temp_fasta_full_path, protease, n=10)
                         experimental_results = process_experimental_data(temp_excel_full_path)
                         peptide_table = compare_results(experimental_results, simulation_results)
                         messages.success(request, 'Experimental data processed and compared with simulation successfully.')

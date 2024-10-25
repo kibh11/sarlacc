@@ -120,7 +120,9 @@ def global_heatmap(protease, selected_layer=None):
 
     df_3d = pd.concat(dfs, keys=excel_files, names=['file', 'row_index'])
 
-    fig, ax = plt.subplots(figsize=(12, 10))
+    # Increase figure size and global font size
+    plt.rcParams.update({'font.size': 16})  # Increased global font size
+    fig, ax = plt.subplots(figsize=(20, 16))  # Increased figure size substantially
     plt.subplots_adjust(bottom=0.2)
 
     if selected_layer and selected_layer in excel_files:
@@ -131,15 +133,49 @@ def global_heatmap(protease, selected_layer=None):
         heatmap_data = df_3d.xs(selected_layer, level='file')
         title = f"Heatmap of {selected_layer} (current)"
 
-    sns.heatmap(heatmap_data, annot=True, cmap="viridis", ax=ax, cbar=False)
+    def format_value(val):
+        if val == 0 or val == 1:
+            return '{:.0f}'.format(val)  # No decimals for 0 and 1
+        return '{:.2f}'.format(val)      # Two decimals for other numbers
+
+    # Create heatmap with custom number formatting
+    heatmap = sns.heatmap(heatmap_data,
+                          annot=True,
+                          fmt='',  # Empty string to use custom formatter
+                          annot_kws={'size': 16},
+                          cmap="viridis",
+                          ax=ax,
+                          cbar=True,
+                          cbar_kws={
+                              'pad': 0.02,
+                              'fraction': 0.046
+                          },
+                          square=True)
+
+    # Apply custom formatting to annotations
+    for t in heatmap.texts:
+        t.set_text(format_value(float(t.get_text())))
+
+    # Customize colorbar with larger font
+    cbar = heatmap.collections[0].colorbar
+    cbar.set_ticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+    cbar.set_ticklabels(['0.0', '0.2', '0.4', '0.6', '0.8', '1.0'])
+    cbar.ax.tick_params(labelsize=16)  # Increased colorbar tick label size
+    cbar.ax.set_ylabel('Cleavage Probability', labelpad=15, fontsize=18)  # Increased colorbar label size
+
+    # Customize axis labels and title with larger fonts
     ax.xaxis.set_ticks_position('top')
     ax.xaxis.set_label_position('top')
-    ax.set_xlabel("Amino Acids", labelpad=20)
-    ax.set_ylabel("Amino Acids")
-    ax.set_title(title, pad=40)
+    ax.set_xlabel("P1 Amino Acids", labelpad=20, fontsize=18)
+    ax.set_ylabel("P1' Amino Acids", fontsize=18)
+    ax.set_title(f"Pepsin Cleavage Probability Heatmap\n{title}", pad=40, fontsize=20)
 
+    # Increase tick label sizes
+    ax.tick_params(axis='both', which='major', labelsize=16)
+
+    # Save with higher DPI for better quality
     buf = io.BytesIO()
-    plt.savefig(buf, format='png', bbox_inches='tight')
+    plt.savefig(buf, format='png', bbox_inches='tight', dpi=150)
     buf.seek(0)
 
     image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')

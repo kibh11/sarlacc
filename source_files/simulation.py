@@ -13,7 +13,7 @@ sys.path.append(os.path.abspath(os.path.join(current_dir, '..')))
 import source_files.utilities as utils
 
 
-def digest(fasta_file, protease='pepsin', exponent = 1, n=1000):
+def digest(fasta_file, protease='pepsin', exponent = 1, n=10):
     sequence = utils.fasta_sequence(fasta_file)
 
     cleavage_table = utils.load_protease(protease)
@@ -62,6 +62,7 @@ def show_table(peptides_dict, n):
     return html_table
 
 # Usage example:
-def simulate_and_show_table(fasta_file, protease='pepsin', exponent=1, n=1000):
+def simulate_and_show_table(fasta_file, protease='pepsin', exponent=1, n=10):
     peptides_dict = digest(fasta_file, protease, exponent, n)
     return show_table(peptides_dict, n)
+

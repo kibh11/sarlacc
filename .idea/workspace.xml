@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="forms fixed">
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/1249_pepsin_Vkor_20240827_160306.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2091_pepsin_phosb_20240827_160402.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/2502_pepsin_sk1_20240827_160418.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3289_pepsin_smo_20240827_160440.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/3780_pepsin_XylE_20240827_160512.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/data/pepsin/history/421_pepsin_S100b_20240827_155412.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source_files/comparison.py" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded">
+      <change afterPath="$PROJECT_DIR$/source_files/sequence_analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_input/static/excel_info.png" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/static/excel_info.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/pepsin/pepsin.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/chymotrypsin/chymotrypsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/nepenthesinii/history/0_nepenthesinii_proteinname_datetime.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/chymotrypsin/history/0_chymotrypsin_proteinname_datetime.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/nepenthesinii/nepenthesinii.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source_files/comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source_files/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/experimental.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source_files/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,17 +69,17 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bhatk/PycharmProjects/sarlacc/resources/data/pepsin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bhatk/PycharmProjects/sarlacc/resources/data/nepenthesinii&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\resources\data\pepsin" />
+      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\resources\data\nepenthesinii" />
+      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\resources\data\nepenthesinii\history" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\resources\data\chymotrypsin" />
+      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\resources\data\pepsin" />
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\resources\data\chymotrypsin\history" />
-      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea\data_input\static" />
-      <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\source_files" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bhatk\PycharmProjects\sarlacc\.idea\data_input\static" />
@@ -473,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724790243996</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded">
+      <option name="closed" value="true" />
+      <created>1724796047186</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1724796047186</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -489,7 +496,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="filled NaN vals in prob table with 0s" />
     <MESSAGE value="added protease aa analyzed counter" />
     <MESSAGE value="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working" />
     <MESSAGE value="visualization prints out heatmap for slice of 3d df! Need to add slider between layers." />
@@ -514,6 +520,7 @@
     <MESSAGE value="created siimulation form that generates simulation table/global heatmap indepedent of experimental data. needs further testing" />
     <MESSAGE value="fixed experimental data also generating simulation result" />
     <MESSAGE value="forms fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="forms fixed" />
+    <MESSAGE value="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded" />
+    <option name="LAST_COMMIT_MESSAGE" value="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded" />
   </component>
 </project>

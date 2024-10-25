@@ -40,7 +40,7 @@
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto minmax(300px, 1fr) minmax(300px, 1fr);
+            grid-template-rows: auto minmax(400px, 1fr) minmax(400px, 1fr);  /* Increased from 300px to 400px */
             grid-template-areas:
                 "simulate input"
                 "table heatmap"
@@ -67,7 +67,7 @@
 
         .quadrant#global-heatmap,
         .quadrant#peptide-table {
-            max-height: 660px;
+            max-height: 800px;  /* Increased from 660px to 800px */
             grid-area: heatmap;
             display: flex;
             flex-direction: column;
@@ -154,6 +154,29 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .form-container {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .image-container {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .excel-info {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -173,11 +196,18 @@
 
     <div class="quadrant" id="data-input">
         <h2>Experimental Data Input:</h2>
-        <form id="dataInputForm" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="button" onclick="showConfirmation()">Process Files</button>
-        </form>
+        <div class="input-container">
+            <div class="form-container">
+                <form id="dataInputForm" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="button" onclick="showConfirmation()">Process Files</button>
+                </form>
+            </div>
+            <div class="image-container">
+                <img src="{% static 'excel_info.png' %}" alt="Excel File Example" class="excel-info">
+            </div>
+        </div>
     </div>
 
     <div class="quadrant" id="peptide-table">
