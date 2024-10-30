@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded">
-      <change afterPath="$PROJECT_DIR$/source_files/sequence_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/static/excel_info.png" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/static/excel_info.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/templates/data_input/data_input.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_input/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_input/views.py" afterDir="false" />
+    <list default="true" id="9d44966c-e7d6-4f2c-adb2-db91606d4311" name="Changes" comment="added sequence analysis files along with modification to comparison table to show partial matches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/chymotrypsin/chymotrypsin.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/nepenthesinii/history/0_nepenthesinii_proteinname_datetime.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/chymotrypsin/history/0_chymotrypsin_proteinname_datetime.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/nepenthesinii/nepenthesinii.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source_files/comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/comparison.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source_files/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/experimental.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source_files/simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source_files/simulation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -480,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724796047186</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="added sequence analysis files along with modification to comparison table to show partial matches">
+      <option name="closed" value="true" />
+      <created>1729887675086</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1729887675086</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -496,7 +496,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added protease aa analyzed counter" />
     <MESSAGE value="version history working correctly, visualization heatmap started, not pulling data correctly, nor is slide working" />
     <MESSAGE value="visualization prints out heatmap for slice of 3d df! Need to add slider between layers." />
     <MESSAGE value="heatmap with working slider" />
@@ -521,6 +520,7 @@
     <MESSAGE value="fixed experimental data also generating simulation result" />
     <MESSAGE value="forms fixed" />
     <MESSAGE value="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded" />
-    <option name="LAST_COMMIT_MESSAGE" value="added all peptides to pepsin, added comparison so that experimental data can be compared with simulated, table populates in lower left quadrant with match, no match, and partial (differs by at most one amino acid at the end or beginning) color-coded" />
+    <MESSAGE value="added sequence analysis files along with modification to comparison table to show partial matches" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sequence analysis files along with modification to comparison table to show partial matches" />
   </component>
 </project>

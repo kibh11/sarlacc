@@ -121,7 +121,7 @@ def global_heatmap(protease, selected_layer=None):
     df_3d = pd.concat(dfs, keys=excel_files, names=['file', 'row_index'])
 
     # Increase figure size and global font size
-    plt.rcParams.update({'font.size': 16})  # Increased global font size
+    plt.rcParams.update({'font.size': 14})  # Increased global font size
     fig, ax = plt.subplots(figsize=(20, 16))  # Increased figure size substantially
     plt.subplots_adjust(bottom=0.2)
 
@@ -142,7 +142,7 @@ def global_heatmap(protease, selected_layer=None):
     heatmap = sns.heatmap(heatmap_data,
                           annot=True,
                           fmt='',  # Empty string to use custom formatter
-                          annot_kws={'size': 16},
+                          annot_kws={'size': 14},
                           cmap="viridis",
                           ax=ax,
                           cbar=True,

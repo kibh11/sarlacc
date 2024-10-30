@@ -129,8 +129,8 @@ def compare_results(experimental_df, simulation_df):
 
     # Generate HTML table with color coding
     html_table = '<style>\n'
-    html_table += 'table.comparison-table { font-size: 18px; border-collapse: collapse; width: 100%; }\n'  # Added font-size and table styling
-    html_table += 'table.comparison-table th, table.comparison-table td { padding: 10px; border: 1px solid #ddd; }\n'  # Added padding
+    html_table += 'table.comparison-table { font-size: 14px; border-collapse: collapse; width: 100%; }\n'  # Added font-size and table styling
+    html_table += 'table.comparison-table th, table.comparison-table td { padding: 5px; border: 1px solid #ddd; }\n'  # Added padding
     html_table += 'table.comparison-table th { background-color: #f5f5f5; font-weight: bold; }\n'
     html_table += '</style>\n'
 
