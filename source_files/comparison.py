@@ -12,7 +12,7 @@ def simulate_digestion(fasta_file, protease, n=999):
     peptides_dict = digest(fasta_file, protease, n=n)
     df = pd.DataFrame([(str(pep), count) for pep, (_, _, count) in peptides_dict.items()],
                       columns=['Peptide', 'Count'])
-    return df.sort_values('Count', ascending=False).head(100)
+    return df.sort_values('Count', ascending=False).head(100), peptides_dict
 
 def process_experimental_data(excel_file):
     df = pd.read_excel(excel_file)

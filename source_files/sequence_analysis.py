@@ -22,7 +22,7 @@ def calculate_resolutions(sequence: str, peptides_dict: Dict[Union[str, Seq], Tu
     Returns:
         List[int]: Resolution values for each position in the sequence
     """
-    resolutions = [len(sequence)] * len(sequence)
+    resolutions = [float('inf')] * len(sequence)
     # Convert dictionary to list format and ignore the count
     peptides_data = [(peptide, start, end) for peptide, (start, end, count) in peptides_dict.items()]
 
@@ -70,51 +70,57 @@ def calculate_resolutions(sequence: str, peptides_dict: Dict[Union[str, Seq], Tu
 
     return resolutions
 
-def visualize_resolutions(sequence: str, resolutions: List[int], line_length: int = 80) -> str:
-    """
-    Creates an HTML table visualization of sequence resolutions that matches the site styling.
+def visualize_sequence_coverage(sequence: str, peptides_dict: Dict[Union[str, Seq], Tuple[int, int, int]], line_length: int = 50) -> str:
+    """Visualizes sequence with resolution values in a linear format."""
+    html = ['<div style="font-family: monospace; font-size: 16px;">']
+    html.append('<style>')
+    html.append('''
+        .sequence-block {
+            display: grid;
+            grid-template-columns: repeat(50, 1fr);
+            gap: 0.1em;
+            margin-bottom: 2em;
+        }
+        .position-unit {
+            text-align: center;
+            display: inline-block;
+        }
+        .position-number {
+            font-size: 10px;
+            color: #888888;
+        }
+        .resolution-value {
+            font-size: 10px;
+            vertical-align: super;
+        }
+    ''')
+    html.append('</style>')
 
-    Args:
-        sequence (str): The amino acid sequence
-        resolutions (List[int]): List of resolution values for each position
-        line_length (int): Number of amino acids per row
+    resolutions = calculate_resolutions(sequence, peptides_dict)
 
-    Returns:
-        str: HTML table representation of the sequence and resolutions
-    """
-    html = ['<div class="table-container">']
-    html.append('<table class="sequence-table">')
-
-    # Split sequence into chunks of line_length
     for i in range(0, len(sequence), line_length):
-        chunk_seq = sequence[i:i + line_length]
+        html.append('<div class="sequence-block">')
+        chunk = sequence[i:i + line_length]
         chunk_res = resolutions[i:i + line_length]
 
-        # Position numbers row
-        html.append('<tr>')
-        html.append(f'<td class="position-label">{i + 1}</td>')
-        for j, _ in enumerate(chunk_seq):
-            html.append(f'<td>{i + j + 1}</td>')
-        html.append('</tr>')
+        for j in range(line_length):
+            if j < len(chunk):
+                aa = chunk[j]
+                res = chunk_res[j]
+                pos = i + j + 1
+                res_display = '∞' if res == float('inf') else res
+                html.append(f'''
+                    <div class="position-unit">
+                        <div class="position-number">{pos}</div>
+                        {aa}<sup class="resolution-value">{res_display}</sup>
+                    </div>
+                ''')
+            else:
+                html.append('<div class="position-unit"></div>')
 
-        # Resolution values row
-        html.append('<tr>')
-        html.append('<td>Resolution</td>')
-        for res in chunk_res:
-            html.append(f'<td>{res}</td>')
-        html.append('</tr>')
 
-        # Sequence row
-        html.append('<tr>')
-        html.append('<td>Sequence</td>')
-        for aa in chunk_seq:
-            html.append(f'<td>{aa}</td>')
-        html.append('</tr>')
+        html.append('</div>')
 
-        # Add spacing between chunks
-        html.append('<tr class="spacer"><td colspan="{line_length + 1}"></td></tr>')
-
-    html.append('</table>')
     html.append('</div>')
 
     return '\n'.join(html)

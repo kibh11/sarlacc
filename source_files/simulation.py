@@ -64,5 +64,6 @@ def show_table(peptides_dict, n):
 # Usage example:
 def simulate_and_show_table(fasta_file, protease='pepsin', exponent=1, n=10):
     peptides_dict = digest(fasta_file, protease, exponent, n)
-    return show_table(peptides_dict, n)
+    simulation_table = show_table(peptides_dict, n)
+    return simulation_table, peptides_dict
 

@@ -40,9 +40,10 @@
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto minmax(400px, 1fr) minmax(400px, 1fr);  /* Increased from 300px to 400px */
+            grid-template-rows: auto auto minmax(400px, 1fr) minmax(400px, 1fr);
             grid-template-areas:
                 "simulate input"
+                "sequence-table sequence-table"
                 "table heatmap"
                 "table heatmap";
             gap: 20px;
@@ -63,6 +64,12 @@
 
         .quadrant#data-input {
             grid-area: input;
+        }
+
+        .quadrant#sequence-coverage {
+            grid-area: sequence-table;
+            overflow: visible;
+            max-height: none;
         }
 
         .quadrant#global-heatmap,
@@ -210,6 +217,17 @@
         </div>
     </div>
 
+    <div class="quadrant" id="sequence-coverage">
+        <h2>Sequence Coverage:</h2>
+        <div class="table-container">
+            {% if sequence_table %}
+            {{ sequence_table|safe }}
+            {% else %}
+            <p>No sequence coverage data available. Please process data first.</p>
+            {% endif %}
+        </div>
+    </div>
+
     <div class="quadrant" id="peptide-table">
         <h2>Peptide Table:</h2>
         <div class="table-container">
@@ -252,7 +270,7 @@
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
     {% endfor %}
 </ul>
 {% endif %}

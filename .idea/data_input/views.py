@@ -25,6 +25,8 @@ sys.path.append(source_files_dir)
 from experimental import update_table, global_heatmap
 from simulation import simulate_and_show_table
 from comparison import simulate_digestion, process_experimental_data, compare_results
+from sequence_analysis import visualize_sequence_coverage
+import utilities as utils
 
 def home(request):
     return redirect('data_input')
@@ -32,6 +34,7 @@ def home(request):
 def data_input(request):
     global_heatmap_url = None
     peptide_table = None
+    sequence_table = None
     excel_files = []
     form = DataInputForm()
     simulation_form = SimulationForm()
@@ -70,7 +73,13 @@ def data_input(request):
                 temp_fasta_full_path = os.path.join(settings.MEDIA_ROOT, temp_fasta_path)
 
                 try:
-                    simulation_table = simulate_and_show_table(temp_fasta_full_path, protease, n=runs)
+                    simulation_table, peptides_dict = simulate_and_show_table(temp_fasta_full_path, protease, n=runs)
+                    try:
+                        sequence = utils.fasta_sequence(temp_fasta_full_path)
+                        sequence_table = visualize_sequence_coverage(sequence, peptides_dict)
+                    except Exception as e:
+                        print(f"Sequence coverage error: {e}")  # For debugging
+                        sequence_table = None
                     global_heatmap_base64, excel_files = global_heatmap(protease)
                     global_heatmap_url = f"data:image/png;base64,{global_heatmap_base64}"
                     peptide_table = simulation_table
@@ -99,9 +108,15 @@ def data_input(request):
 
                 try:
                     if compare_with_simulation:
-                        simulation_results = simulate_digestion(temp_fasta_full_path, protease, n=10)
+                        simulation_results, peptides_dict = simulate_digestion(temp_fasta_full_path, protease, n=10)
                         experimental_results = process_experimental_data(temp_excel_full_path)
                         peptide_table = compare_results(experimental_results, simulation_results)
+                        try:
+                            sequence = utils.fasta_sequence(temp_fasta_full_path)
+                            sequence_table = visualize_sequence_coverage(sequence, peptides_dict)
+                        except Exception as e:
+                            print(f"Sequence coverage error: {e}")  # For debugging
+                            sequence_table = None
                         messages.success(request, 'Experimental data processed and compared with simulation successfully.')
                     else:
                         update_table(temp_fasta_full_path, temp_excel_full_path, protease, protein_name)
@@ -125,6 +140,7 @@ def data_input(request):
         'simulation_form': simulation_form,
         'global_heatmap_url': global_heatmap_url,
         'peptide_table': peptide_table,
+        'sequence_table': sequence_table,
         'excel_files': excel_files,
         'protease': protease,
     }
